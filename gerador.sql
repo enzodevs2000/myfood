@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS login;
+
 CREATE TABLE login (
 	codigo INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(30),
