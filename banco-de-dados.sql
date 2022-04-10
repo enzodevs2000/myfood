@@ -10,17 +10,33 @@ DROP TABLE IF EXISTS cliente;
 DROP TABLE IF EXISTS entregador;
 DROP TABLE IF EXISTS menu;
 DROP TABLE IF EXISTS produto;
+DROP TABLE IF EXISTS categoriaProduto;
 DROP TABLE IF EXISTS restaurante;
 DROP TABLE IF EXISTS gerente;
 DROP TABLE IF EXISTS login;
+DROP TABLE IF EXISTS permissao;
+
+# Criei essa tabela para que não corra redundância do nome
+# na tabela de login. Além disso, acho que futuramente será
+# mais simples fazer os tratamentos com a permissão, se ela
+# estiver como um INT
+
+CREATE TABLE permissao (
+	codigo INT,
+    nome VARCHAR(15),
+    
+    PRIMARY KEY (codigo)
+    
+);
 
 CREATE TABLE login (
 	codigo INT AUTO_INCREMENT,
     email VARCHAR(30),
     senha VARCHAR(20),
-    permissao VARCHAR(10),
+    permissao INT,
     
-    PRIMARY KEY (codigo)
+    PRIMARY KEY (codigo),
+    FOREIGN KEY (permissao) REFERENCES permissao(codigo)
 );
 
 CREATE TABLE gerente (
@@ -61,6 +77,8 @@ CREATE TABLE entregador (
     ON UPDATE CASCADE
 );
 
+# Restaurante não esta na 3FN, horarioAbertura e horarioFechamento
+
 CREATE TABLE restaurante (
 	cnpj VARCHAR(18),
     nome VARCHAR(45),
@@ -76,18 +94,30 @@ CREATE TABLE restaurante (
     ON UPDATE CASCADE
 );
 
+# Criei essa tabela para evitar a redundância dos nomes das categorias na
+# tabela produto
+
+CREATE TABLE categoriaProduto(
+	codigo INT,
+    nome VARCHAR(25),
+    
+    PRIMARY KEY(codigo)
+    
+);
+
 CREATE TABLE produto (
 	codigo INT AUTO_INCREMENT,
     preco DOUBLE,
-    categoria VARCHAR(25),
+    categoria INT,
     nome VARCHAR(45),
-    descricao VARCHAR(45),
+    descricao VARCHAR(80),
     restauranteCnpj VARCHAR(18),
     
     PRIMARY KEY (codigo),
     FOREIGN KEY (restauranteCnpj) REFERENCES restaurante(cnpj)
     ON DELETE CASCADE
-    ON UPDATE CASCADE
+    ON UPDATE CASCADE,
+    FOREIGN KEY (categoria) REFERENCES categoriaProduto(codigo)
 );
 
 CREATE TABLE enderecoRestaurante (
