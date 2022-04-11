@@ -24,18 +24,18 @@ INSERT INTO login (email, senha, permissao) VALUES
     ('entregador3@example.com', 'abcd456', 3);
     
 INSERT INTO cliente VALUES
-	('111.111.111-11', 'Kleber Rodrigues', '2002-07-21', '61 91111-1111', 1),
-    ('222.222.222-22', 'Enzo Nunes', '2001-05-05', '61 92222-2222', 2),
-    ('333.333.333-33', 'Gabriela Dias', '2002-02-04', '61 93333-3333', 3),
-    ('444.444.444-44', 'César Augusto', '1998-12-10', '61 94444-4444', 4),
-    ('555.555.555-55', 'Ricardo Martins', '1978-10-23', '61 95555-5555', 5);
+	('111.111.111-11', 'Kleber Rodrigues', '2002-07-21', '61 91111-1111', 'kleber@example.com'),
+    ('222.222.222-22', 'Enzo Nunes', '2001-05-05', '61 92222-2222', 'enzo@example.com'),
+    ('333.333.333-33', 'Gabriela Dias', '2002-02-04', '61 93333-3333', 'gabi@example.com'),
+    ('444.444.444-44', 'César Augusto', '1998-12-10', '61 94444-4444', 'luciana@example.com'),
+    ('555.555.555-55', 'Ricardo Martins', '1978-10-23', '61 95555-5555', 'ricardo@example.com');
 
-INSERT INTO gerente(cpf, nome, loginCodigo) VALUES
-	('666.666.666-66', 'Cristiano Ramalho', 6),
-    ('777.777.777-77', 'Lionel Mendes', 7),
-    ('888.888.888-88', 'Nilmar Junior', 8),
-    ('999.999.999-99', 'Roberto Lima', 9),
-    ('101.010.101-01', 'Sarah Vitória', 10);
+INSERT INTO gerente(cpf, nome, loginEmail) VALUES
+	('666.666.666-66', 'Cristiano Ramalho', 'empresa1@example.com'),
+    ('777.777.777-77', 'Lionel Mendes', 'empresa2@example.com'),
+    ('888.888.888-88', 'Nilmar Junior', 'empresa3@example.com'),
+    ('999.999.999-99', 'Roberto Lima', 'empresa4@example.com'),
+    ('101.010.101-01', 'Sarah Vitória', 'empresa5@example.com');
     
 INSERT INTO restaurante VALUES
 	('13.574.594/0001-96', 'Burger King', true, '10:00', '04:00', 5, 1),
@@ -44,12 +44,12 @@ INSERT INTO restaurante VALUES
     ('42.591.651/0001-43', "McDonald's", true, '11:00', '22:00', 0, 4),
     ('17.261.661/0007-69', 'Outback', false, '16:00', '00:00', 0, 5);
     
-INSERT INTO  entregador(nome, cnh, telefone, loginCodigo) VALUES
-	('Galo de Luta', '12223242829', '94002-8922', 11),
-    ('Danilo Silva de Oliveira', '16171819202', '91234-5678', 12),
-    ('João Santana', '11121314151', '92122-2324', 13),
-    ('Márcio Lopes', '10987654321', '91020-3040', 14),
-    ('Carla Cabral', '12345678910', '91111-2222', 15);
+INSERT INTO  entregador(nome, cnh, telefone, loginEmail) VALUES
+	('Galo de Luta', '12223242829', '94002-8922', 'galodeluta@example.com'),
+    ('Danilo Silva de Oliveira', '16171819202', '91234-5678', 'biu@example.com'),
+    ('João Santana', '11121314151', '92122-2324', 'entregador1@example.com'),
+    ('Márcio Lopes', '10987654321', '91020-3040', 'entregadoe2@example.com'),
+    ('Carla Cabral', '12345678910', '91111-2222', 'entregador3@example.com');
     
 INSERT INTO enderecoRestaurante VALUES
 	('73400-489', 'Brasília', 'DF', 'Águas Claras', 'DF Plaza' , 5, '13.574.594/0001-96'),
@@ -65,26 +65,61 @@ INSERT INTO enderecoCliente VALUES
 	('73459-100', 'Brasília', 'DF', 'Gama', 'Quadra 1 Conjunto M' , 12, '444.444.444-44'),
 	('72100-900', 'Brasília', 'DF', 'Guará', 'Área Especial 7' , 20, '555.555.555-55');
     
-INSERT INTO categoriaProduto VALUES
-	(1, 'Bebidas'),
-    (2, 'Sushi'),
-    (3, 'Hambúrguer'),
-    (4, 'Pastel'),
-    (5, 'Cachorro-quente');
    
-INSERT INTO produto (preco, categoria, nome, descricao, restauranteCnpj) VALUES
-	(5.50, 1, 'Coca-cola', 'Refrigerante de cola', '13.574.594/0001-96'),
-    (20.00, 2, 'Barca de sushi', 'Sushi com 20 peças', '01.603.603/0001-40'),
-    (15.00, 3, 'X-Burguer', 'Sanduíche com 2 hamburgueres e ovo', '71.833.552/0001-29'),
-    (10.20, 4, 'Pastel de 4 queijos', 'Pastel dos queijos cheddar, gorgonzola, mussarela e prato', '42.591.651/0001-43'),
-    (12.50, 5, 'Cachorro-quente tradicional', 'Cachorro-quente ao molho com 1 salsicha', '17.261.661/0007-69');
+INSERT INTO produto (preco, nome, categoria, descricao, restauranteCnpj) VALUES
+	(5.50, 'Refrigerante Refill', 'Refrigerante', 'Pegue o quanto quiser!', '13.574.594/0001-96'),
+    (12.50, 'Whopper', 'Hambúrguer', 'Sanduíche', '13.574.594/0001-96'),
+    (3.50, 'Batata-Fritas', 'Petisco', '20g de fritas', '13.574.594/0001-96'),
+    (15.00, 'Hamburguer Vegetariano', 'Hambúrguer', 'Hamburguer de plantas', '13.574.594/0001-96'),
+    (3.00, 'Casquinha de sorvete', 'Sorvetes', 'Casquinha de baunilha', '13.574.594/0001-96'),
+    (10.00, 'Strogonoff de frango', 'Pratos', 'Prato de strogonoff', '01.603.603/0001-40'),
+    (15.00, 'Linguiça Toscana', 'Pratos', 'Prato com arroz e duas linguiças', '01.603.603/0001-40'),
+    (20.00, 'Salada', 'Saladas', 'Salada de alface e tomate', '01.603.603/0001-40'),
+    (12.50, 'Casquinha', 'Sorvetes', 'Casquinha', '01.603.603/0001-40'),
+    (13.00, 'Sundae', 'Sorvetes', 'Sorvete', '01.603.603/0001-40'),
+    (12.50, 'X-burguer', 'Hambúrguer', 'Sanduiche com 2 hamburgueres', '71.833.552/0001-29'),
+    (15.00, 'Fritas', 'Petisco', '30g', '71.833.552/0001-29'),
+    (5.00, 'Coca-Cola', 'Refrigerante', 'Refrigerante', '71.833.552/0001-29'),
+    (5.00, 'Guaraná', 'Refrigerante', 'Refrigerante 200ML', '71.833.552/0001-29'),
+    (14.00, 'Milk Shake Ovomaltine', 'Milk-shakes', '500Ml de Ovomaltine', '71.833.552/0001-29'),
+    (15.00, 'Quarteirão', 'Hambúrguer', 'Sanduiche com 2 hamburgueres', '42.591.651/0001-43'),
+    (8.00, 'Milk Shake Morango', 'Milk-shakes', '500 Ml', '42.591.651/0001-43'),
+    (6.00, 'MC maçã', 'Saudável', 'Lanche saudável', '42.591.651/0001-43'),
+    (10.00, 'Cheddar', 'Hambúrguer', 'Sanduíche de Cheddar', '42.591.651/0001-43'),
+    (5.00, 'Fanta-laranja', 'Refrigerante', 'Refigerante 200ml', '42.591.651/0001-43'),
+    (25.00, 'Costela suína', 'Churrasco', 'carne de porco', '17.261.661/0007-69'),
+    (10.00, 'Chá gelado', 'Bebidas','chá gelado 500ml', '17.261.661/0007-69'),
+    (12.50, 'Sanduíche', 'Hambúrguer', 'Sanduíche de costela', '17.261.661/0007-69'),
+    (5.00, 'Chopp', 'Bebidas alcoolicas', 'Chopp 300ml', '17.261.661/0007-69'),
+    (8.00, 'Cheese-Cake', 'Sobremesas', 'Cheese-Cake de morango', '17.261.661/0007-69');
     
 INSERT INTO menu VALUES
 	('13.574.594/0001-96', 1, 10),
-    ('01.603.603/0001-40', 2, 20),
-    ('71.833.552/0001-29', 3, 50),
-    ('42.591.651/0001-43', 4, 15),
-    ('17.261.661/0007-69', 5, 30);
+    ('13.574.594/0001-96', 2, 20),
+    ('13.574.594/0001-96', 3, 30),
+    ('13.574.594/0001-96', 4, 40),
+    ('13.574.594/0001-96', 5, 50),
+    ('01.603.603/0001-40', 6, 5),
+    ('01.603.603/0001-40', 7, 15),
+    ('01.603.603/0001-40', 8, 25),
+    ('01.603.603/0001-40', 9, 35),
+    ('01.603.603/0001-40', 10, 45),
+    ('71.833.552/0001-29', 11, 3),
+    ('71.833.552/0001-29', 12, 13),
+    ('71.833.552/0001-29', 13, 23),
+    ('71.833.552/0001-29', 14, 33),
+    ('71.833.552/0001-29', 15, 43),
+    ('42.591.651/0001-43', 16, 4),
+    ('42.591.651/0001-43', 17, 14),
+    ('42.591.651/0001-43', 18, 24),
+    ('42.591.651/0001-43', 19, 34),
+    ('42.591.651/0001-43', 20, 44),
+    ('17.261.661/0007-69', 21, 9),
+    ('17.261.661/0007-69', 22, 20),
+    ('17.261.661/0007-69', 23, 15),
+    ('17.261.661/0007-69', 24, 20),
+    ('17.261.661/0007-69', 25, 35);
+    
     
 INSERT INTO pedido (metPagamento, valorTotal, tempoEspera, clienteCpf, restauranteCnpj, entregadorRegistro, enderecoCliente) VALUES 
 	('crédito', 30.00, '00:30:00', '111.111.111-11', '13.574.594/0001-96', 1, '72430-129'),
@@ -95,26 +130,26 @@ INSERT INTO pedido (metPagamento, valorTotal, tempoEspera, clienteCpf, restauran
 	
 # Não entendi por que os códigos no pedido começaram em 11    
 INSERT INTO pedidoRestaurante VALUES
-	('13.574.594/0001-96', 11),
-    ('01.603.603/0001-40', 12),
-    ('71.833.552/0001-29', 13),
-    ('42.591.651/0001-43', 14),
-    ('17.261.661/0007-69', 15);
+	('13.574.594/0001-96', 1),
+    ('01.603.603/0001-40', 2),
+    ('71.833.552/0001-29', 3),
+    ('42.591.651/0001-43', 4),
+    ('17.261.661/0007-69', 5);
     
 INSERT INTO pedidosEntregador VALUES
-	(1, 11),
-    (2, 12),
-    (3, 13),
-    (4, 14),
-    (5, 15);    
+	(1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5);    
   
 # Não entendi pq o código de pedido começa em 11
 INSERT INTO produtosPedidos VALUES
-	(1, 'Enviar guardanapo', 1, 11),
-    (2, 'Enviar garfo', 2, 12),
-    (3, 'Enviar canudo', 3, 13),
-    (4, 'Enviar maionese', 4, 14),
-    (5, 'Enviar ketchup', 5, 15);
+	(1, 'Enviar guardanapo', 1, 1),
+    (2, 'Enviar garfo', 2, 2),
+    (3, 'Enviar canudo', 3, 3),
+    (4, 'Enviar maionese', 4, 4),
+    (5, 'Enviar ketchup', 5, 5);
    
 # Verifica a normalização de LOGIN -> OK -> Foi criado a tabela permissão
 SELECT * FROM login;

@@ -30,12 +30,11 @@ CREATE TABLE permissao (
 );
 
 CREATE TABLE login (
-	codigo INT AUTO_INCREMENT,
     email VARCHAR(30),
     senha VARCHAR(20),
     permissao INT,
     
-    PRIMARY KEY (codigo),
+    PRIMARY KEY (email),
     FOREIGN KEY (permissao) REFERENCES permissao(codigo)
 );
 
@@ -43,10 +42,10 @@ CREATE TABLE gerente (
 	registro INT AUTO_INCREMENT,
     cpf VARCHAR(20),
     nome VARCHAR(45),
-    loginCodigo INT,
+    loginEmail VARCHAR(30),
     
     PRIMARY KEY (registro, cpf),
-    FOREIGN KEY (loginCodigo) REFERENCES login(codigo)
+    FOREIGN KEY (loginEmail) REFERENCES login(email)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -56,10 +55,10 @@ CREATE TABLE cliente (
     nome VARCHAR(45),
     dataNascimento DATE,
     telefone VARCHAR(15),
-    loginCodigo INT,
+    loginEmail VARCHAR(30),
     
     PRIMARY KEY (cpf),
-    FOREIGN KEY (loginCodigo) REFERENCES login(codigo)
+    FOREIGN KEY (loginEmail) REFERENCES login(email)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -69,10 +68,10 @@ CREATE TABLE entregador (
     nome VARCHAR(45),
     cnh VARCHAR(11),
     telefone VARCHAR(11),
-    loginCodigo INT,
+    loginEmail VARCHAR(30),
     
     PRIMARY KEY (registro),
-    FOREIGN KEY (loginCodigo) REFERENCES login(codigo)
+    FOREIGN KEY (loginEmail) REFERENCES login(email)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -94,30 +93,18 @@ CREATE TABLE restaurante (
     ON UPDATE CASCADE
 );
 
-# Criei essa tabela para evitar a redundância dos nomes das categorias na
-# tabela produto
-
-CREATE TABLE categoriaProduto(
-	codigo INT,
-    nome VARCHAR(25),
-    
-    PRIMARY KEY(codigo)
-    
-);
-
 CREATE TABLE produto (
 	codigo INT AUTO_INCREMENT,
     preco DOUBLE,
-    categoria INT,
     nome VARCHAR(45),
+     categoria VARCHAR(25),
     descricao VARCHAR(80),
     restauranteCnpj VARCHAR(18),
     
     PRIMARY KEY (codigo),
     FOREIGN KEY (restauranteCnpj) REFERENCES restaurante(cnpj)
     ON DELETE CASCADE
-    ON UPDATE CASCADE,
-    FOREIGN KEY (categoria) REFERENCES categoriaProduto(codigo)
+    ON UPDATE CASCADE
 );
 
 CREATE TABLE enderecoRestaurante (
