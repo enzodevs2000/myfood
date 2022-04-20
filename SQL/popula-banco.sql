@@ -152,7 +152,9 @@ INSERT INTO produtosPedidos VALUES
     (5, 'Enviar ketchup', 5, 5);
    
 # Verifica a normalização de LOGIN -> OK -> Foi criado a tabela permissão
-SELECT * FROM login;
+SELECT * FROM login
+ORDER BY email;
+
 SELECT * FROM login
 WHERE LOGIN.email = 'kleber@example.com';
 

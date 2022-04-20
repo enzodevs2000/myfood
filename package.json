@@ -1,0 +1,28 @@
+{
+  "name": "myfood",
+  "version": "1.0.0",
+  "description": "Projeto de banco de dados inspirado no Ifood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kleberjr/myfood.git"
+  },
+  "keywords": [
+    "database"
+  ],
+  "author": "enzon/kleberjr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kleberjr/myfood/issues"
+  },
+  "homepage": "https://github.com/kleberjr/myfood#readme",
+  "dependencies": {
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
