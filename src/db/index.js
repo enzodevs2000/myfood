@@ -218,6 +218,141 @@
         cep : '71230-176'
     });
 
+    // Produto
+
+    console.log('INSERT INTO PRODUTO');
+    await produto.insert({
+        preco : 10,
+        nome : 'Pastel de queijo',
+        categoria : 'Pastel',
+        descricao : 'Pastel tradicional de queijo',
+        restauranteCnpj : '10.203.304/0506-07'
+    });
+
+    console.log('SELECT * FROM PRODUTO');
+    const produto1 = await produto.select();
+    console.log(produto1[0]);
+
+    console.log('UPDATE PRODUTO');
+    await produto.updatePreco({
+        preco : 12.50,
+        codigo : 27
+    });
+
+    console.log('DELETE FROM PRODUTO');
+    await produto.deleteProduto({
+        codigo : 27
+    }); 
+
+    // Menu
+
+    console.log('INSERT INTO MENU');
+    await menu.insert({
+        restauranteCnpj : '10.203.304/0506-07',
+        produtoCodigo : 28,
+        quantidade : 10
+    }); 
+
+    console.log('SELECT * FROM MENU');
+    const menu1 = await menu.select();
+    console.log(menu1[0]);
+
+    console.log('UPDATE MENU');
+    await menu.updateQuantidade({
+        quantidade : 15,
+        produtoCodigo : 28
+    });
+
+    console.log('DELETE FROM MENU');
+    await menu.deleteMenu({
+        produtoCodigo : 28
+    });
+
+    // Pedido
+    console.log('INSERT INTO PEDIDO');
+    await pedido.insert({
+        metPagamento : 'pix',
+        valorTotal : 20,
+        tempoEspera : '00:05',
+        clienteCpf : '232.232.232-32',
+        restauranteCnpj : '10.203.304/0506-07',
+        entregadorRegistro : 7,
+        enderecoCliente : '71230-176'
+    });
+
+    console.log('SELECT * FROM PEDIDO');
+    const pedido1 = await pedido.select();
+    console.log(pedido1[0]);
+
+    console.log('UPDATE PEDIDO ');
+    await pedido.updateTempoEspera({
+        tempoEspera : '00:10',
+        codigo : 8
+    });
+
+    console.log('DELETE FROM PEDIDO');
+    await pedido.deletePedido({
+        codigo : 7
+    });
+
+    // PEDIDORESTAURANTE
+
+    console.log('INSERT INTO PEDIDORESTAURANTE');
+    await pedidoRestaurante.insert({
+        restauranteCnpj : '10.203.304/0506-07',
+        pedidoCodigo : 8
+    });
+
+    console.log('SELECT * FROM PEDIDORESTAURANTE');
+    const pedidoRestaurante1 = await pedidoRestaurante.select();
+    console.log(pedidoRestaurante1[0]);
+
+    console.log('DELETE FROM PEDIDORESTAURANTE');
+    await pedidoRestaurante.deletePedidoRestaurante({
+        pedidoCodigo : 8
+    });
+
+    // PEDIDOENTREGADOR
+    
+    console.log('INSERT INTO PEDIDOENTREGADOR');
+    await pedidosEntregador.insert({
+        entregadorRegistro : 9,
+        pedidoCodigo : 8
+    });
+
+    console.log('SELECT * FROM PEDIDOENTREGADOR');
+    const pedidoEntregador1 = await pedidosEntregador.select();
+    console.log(pedidoEntregador1[0]);
+
+    console.log('DELETE FROM PEDIDOENTREGADOR');
+    await pedidosEntregador.deletePedidoEntregador({
+        pedidoCodigo : 8
+    });
+
+    // PRODUTOSPEDIDOS
+
+    console.log('INSERT INTO PRODUTOSPEDIDOS');
+    await produtosPedidos.insert({
+        quantidade : 2,
+        observacoes : 'Com canudo',
+        produtoCodigo : 28,
+        pedidoCodigo : 8
+    });
+
+    console.log('SELECT FROM PRODUTOSPEDIDOS');
+    const produtosPedidos1 = await produtosPedidos.select();
+    console.log(produtosPedidos1[0]);
+
+    console.log('UPDATE PRODUTOSPEDIDOS');
+    await produtosPedidos.updateQuantidade({
+        quantidade : 5,
+        pedidoCodigo : 8
+    });
+
+    console.log('DELETE FROM PRODUTOSPEDIDOS');
+    await produtosPedidos.deleteProdutosPedidos({
+        pedidoCodigo : 8
+    })
 
 })();
 

@@ -18,15 +18,15 @@ async function select(){
 
 async function updateQuantidade(menu){
     const conn = await db.connect();
-    const sql = 'UPDATE menu SET quantidade = ? WHERE restauranteCnpj = ?;';
+    const sql = 'UPDATE menu SET quantidade = ? WHERE produtoCodigo = ?;';
     const values = [menu.quantidade, menu.produtoCodigo];
     await conn.query(sql, values);
 }
 
 async function deleteMenu(menu){
     const conn = await db.connect();
-    const sql = 'DELETE FROM menu WHERE restauranteCnpj = ?;';
-    const values = [menu.restauranteCnpj];
+    const sql = 'DELETE FROM menu WHERE produtoCodigo = ?;';
+    const values = [menu.produtoCodigo];
     await conn.query(sql, values);
     console.log(' Menu deletado com sucesso!');
 }
