@@ -1,38 +1,26 @@
-// Módulo para você colocar seu username e password do my sql
 const credential = require('./credentials');
 
 async function connect() {
-    // Verificar se o bd está conectado ou não
+    // Evita conectar mais de uma vez, caso já exista uma conexão.
     if (global.connection && global.connection.state !== 'disconnected') {
         return global.connection;
     }
 
-    // Chamar o framework mysql2
+    // Chamar o framework mysql2.
     const mysql = require('mysql2/promise');
 
-    // Fazer a conexão com o banco
-    /**
-     *  Crie um módulo credentials.js e faça um 
-     * module.exports{
-     *  username : 'myusername',
-     *  password : 'mypassword',
-     *  bd : 'mybd' 
-     * }
-     */
+    // Realiza a conexão com o banco de dados.
     const conn = await mysql.createConnection({
-        host : 'localhost',
-        user : credential.username,
+        host : "localhost",
+        user : credential.user,
         password : credential.password,
-        database : credential.bd
+        database : credential.database    
     });
-    console.log('Conexão feita com sucesso!');
 
-    // Definir o atributo conexão no global
     global.connection = conn;
 
     return conn;
 }
 
-connect();
 
 module.exports = {connect};

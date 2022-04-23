@@ -1,0 +1,34 @@
+* {
+    background-color: #ED1B30;
+    padding: 0;
+    margin: 0
+}
+
+a #pagina-atual {
+    color: #E5E5E5;
+}
+
+#menu{
+    list-style: none;
+    padding: 0;
+    border: solid 1px #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#menu ul li {
+    display: inline;
+
+}
+
+#menu ul li a {
+    color: #FFF;
+    padding: 20px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#menu ul li a:hover {
+    color: #E5E5E5;
+}

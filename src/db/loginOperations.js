@@ -14,6 +14,7 @@ async function insert(login){
      * no array values
      */
     await conn.query(sql, values);
+    console.log('Login cadastrado com sucesso!');
 }
 
 async function select(){

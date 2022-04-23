@@ -5,12 +5,14 @@ async function insert(cliente){
 
     const sql = 'INSERT INTO cliente VALUES(?, ?, ?, ?, ?);';
     const values = [cliente.cpf, cliente.nome, cliente.dataNascimento, cliente.telefone, cliente.loginEmail];
-
+    
     await conn.query(sql, values);
+    console.log('Cliente inserido com sucesso!');
 }
 
 async function select(){
     const conn = await db.connect();
+    
     const sql = 'SELECT * FROM cliente;'
 
     return await conn.query(sql);
