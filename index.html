@@ -31,3 +31,32 @@
     </main>
 </body>
 </html>
+
+<script>
+    // fetch('http://localhost:3000/api/login')
+    //     .then(response => response.json())
+    //     .then(jsonObj => {
+    //         console.log(jsonObj.result[0]);
+    //     })
+    
+    // main.js
+
+
+
+    const url = new URL('http://localhost:3000/api/login');
+    url.searchParams.append('email', 'teste');
+    url.searchParams.append('s', 'teste');
+    // POST request using fetch()
+    fetch(url, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {'Content-type': 'application/json; charset=UTF-8'}
+    })
+
+    // Converting to JSON
+    .then(response => response.json())
+
+    // Displaying results to console
+    .then(json => console.log(json));
+
+</script>

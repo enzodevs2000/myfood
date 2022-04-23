@@ -1,0 +1,1 @@
+const GerenteService = require('../services/GerenteService');

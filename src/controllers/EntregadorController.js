@@ -1,0 +1,1 @@
+const EntregadorService = require('../services/EntregadorService');
