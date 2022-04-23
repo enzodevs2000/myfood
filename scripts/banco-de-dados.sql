@@ -100,6 +100,7 @@ CREATE TABLE produto (
      categoria VARCHAR(25),
     descricao VARCHAR(80),
     restauranteCnpj VARCHAR(18),
+    imagem BLOB,
     
     PRIMARY KEY (codigo),
     FOREIGN KEY (restauranteCnpj) REFERENCES restaurante(cnpj)
