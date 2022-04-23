@@ -17,4 +17,5 @@
 
 html, body {
     font-family: var(--std-font);
+    background-color: var(--white);
 }
