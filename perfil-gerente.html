@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="styles/common.css">
+        <link rel="stylesheet" href="styles/menu.css">
+        <link rel="stylesheet" href="styles/perfil-cliente.css">
+
+        <title>Perfil - Gerente</title>
+    </head>
+    <body>
+        <nav id="menu" style=" background-color: #ED1B30;">
+            <ul>
+                <li ><a href="home-cliente.html">Home</a></li>
+                <li id="pagina-atual"><a href="#">Perfil</a></li>
+                <li><a href="#">Pedidos</a></li>
+            </ul>
+        </nav>
+
+        <div id="corpo">
+            <h1>Suas informações:</h1>
+            <ul id="informacoes">
+                <li>
+                    Nome: <input type="text" id="grname" placeholder="Nome">
+                </li>
+                <li>
+                    CPF: <input type="text" id="grcpf" placeholder="XXX.XXX.XXX-XX">
+                </li>
+                <li>
+                    Email: <input type="text" id="gremail" placeholder="Email">
+                </li>
+            </ul>
+            <div id="botoes">
+                <button type="submit" id="atualizar">Atualizar</button>
+                <button type="button" id="deletar">Deletar</button>
+            </div>
+        </div>
+    </body>
+</html>
