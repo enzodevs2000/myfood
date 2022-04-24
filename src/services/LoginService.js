@@ -1,23 +1,25 @@
-const { acceptsEncodings } = require('express/lib/request');
+const { acceptsEncodings, accepts } = require('express/lib/request');
 const db = require('../db');
 
-function selectLogins() {
-    return new Promise((accept, reject) => {
+
+function selectAll() {
+    return new Promise((resolve, reject) => {
         db.query('SELECT * FROM login', (error, results) => {
             if (error) {
                 reject(error);
                 return;
             }
 
-            accept(results);
+            resolve(results);
         })
     })
 }
 
-function selectLoginByEmail(email) {
-    return new Promise((accept, reject) => {
+function selectByEmail(email) {
+    return new Promise((resolve, reject) => {
         const sql = 'SELECT * FROM login WHERE email=?';
         const values = email;
+
         db.query(sql, values, (error, results) => {
             if (error) {
                 reject(error);
@@ -25,18 +27,34 @@ function selectLoginByEmail(email) {
             }
 
             if (results.length > 0) {
-                accept(results[0]);
+                resolve(results[0]);
             } else {
-                accept(false);
+                resolve(false);
             }
 
-            accept(results);
+            resolve(results);
+        })
+    })
+}
+
+function insert(email, senha, permissao) {
+    return new Promise((resolve, reject) => {
+        const sql = 'INSERT INTO login VALUES (?,?,?)';
+        const values = [email, senha, permissao];
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
         })
     })
 }
 
 module.exports = {
-    selectLogins: selectLogins,
-
-    selectLoginByEmail: selectLoginByEmail
+    selectAll: selectAll,
+    selectByEmail: selectByEmail,
+    insert: insert
 };

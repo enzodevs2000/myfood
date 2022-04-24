@@ -1,9 +1,10 @@
+const res = require('express/lib/response');
 const LoginService = require('../services/LoginService');
 
-async function selectLogins(request, response) {
+async function selectAll(request, response) {
     let json = {error:'', result:[]};
 
-    let logins = await LoginService.selectLogins();
+    let logins = await LoginService.selectAll();
 
     for (let i in logins) {
         json.result.push({
@@ -16,11 +17,11 @@ async function selectLogins(request, response) {
     response.json(json);
 }
 
-async function selectLoginByEmail(request, response) {
+async function selectByEmail(request, response) {
     let json = {error:'', result:[]};
 
     let email = request.params.email;
-    let login = await LoginService.selectLoginByEmail(email);
+    let login = await LoginService.selectByEmail(email);
 
     if (login) {
         json.result = login;
@@ -29,36 +30,25 @@ async function selectLoginByEmail(request, response) {
     response.json(json);
 }
 
-async function insertLogin(request, response) {
+async function insert(request, response) {
     let json = {error:'', result:[]};
     
     let email = request.query.email;
     let senha = request.query.senha;
     let permissao = request.query.permissao;
 
-    response.send({
-        'email': email,
-        'senha': senha,
-        'permissao': permissao
-    });
+    if (email && senha && permissao) {
+        let login = await LoginService.insert(email, senha, permissao);
+        json.result = {email, senha, permissao}
+    } else {
+        json.error = 'Campos não enviados!';
+    }
 
-    //console.log(request.query.email);
-    
-    // if (email && senha && permissao) {
-    //     LoginService.inserir(email, senha, permissao);
-        
-    //     json.result = {
-    //         email, 
-    //         senha,
-    //         permissao
-    //     };
-    // }
-
-    //response.json(json);
+    response.json(json);
 }
 
 module.exports = {
-    selectLogins: selectLogins,
-    
-    selectLoginByEmail: selectLoginByEmail
+    selectAll: selectAll,
+    selectByEmail: selectByEmail,
+    insert: insert
 }
