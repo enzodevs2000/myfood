@@ -17,7 +17,7 @@ function selectAll() {
 
 function insert(cpf, nome, dataNascimento, telefone, loginEmail) {
     return new Promise((resolve, reject) => {
-        const sql = 'INSERT INTO login VALUES (?,?,?,?,?)';
+        const sql = 'INSERT INTO cliente VALUES (?,?,?,?,?)';
         const values = [cpf, nome, dataNascimento, telefone, loginEmail];
 
         db.query(sql, values, (error, results) => {
