@@ -31,7 +31,41 @@ function insert(nome, cnh, telefone, loginEmail) {
     })
 }
 
+function update(nome, cnh, telefone, registro) {
+    return new Promise((resolve, reject) => {
+        const sql = 'UPDATE entregador SET nome = ?, cnh = ?, telefone = ? WHERE registro = ?';
+        const values = [nome, cnh, telefone, registro];
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
+        })
+    })
+}
+
+function _delete(registro) {
+    return new Promise((resolve, reject) => {
+        const sql = 'DELETE FROM entregador WHERE registro = ?';
+        const values = registro;
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
+        })
+    })
+}
+
 module.exports = {
     selectAll: selectAll,
-    insert: insert
+    insert: insert,
+    update: update,
+    delete: _delete
 };

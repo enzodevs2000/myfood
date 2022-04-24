@@ -35,7 +35,34 @@ async function insert(request, response) {
     response.json(json);
 }
 
+async function update(request, response) {
+    let json = {error:'', result:[]};
+    
+    let registro = request.params.registro;
+    let cpf = request.query.nome;
+    let nome = request.query.cnh;
+
+    if (registro && cpf && nome) {
+        await GerenteService.update(cpf, nome, registro);
+        json.result = {cpf, nome, registro};
+    } else {
+        json.error = 'Campos não enviados!';
+    }
+
+    response.json(json);
+}
+
+async function _delete(request, response) {
+    let json = {error:'', result:[]};
+    
+    await GerenteService.delete(request.params.registro);
+
+    response.json(json);
+}
+
 module.exports = {
     selectAll: selectAll,
-    insert: insert
+    insert: insert,
+    update: update,
+    delete: _delete
 }

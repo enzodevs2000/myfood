@@ -36,7 +36,36 @@ async function insert(request, response) {
     response.json(json);
 }
 
+async function update(request, response) {
+    let json = {error:'', result:[]};
+    
+    let registro = request.params.registro;
+    let nome = request.query.nome;
+    let cnh = request.query.cnh;
+    let telefone = request.query.telefone;
+
+
+    if (registro && nome && cnh && telefone) {
+        await EntregadorService.update(nome, cnh, telefone, registro);
+        json.result = {nome, cnh, telefone, registro};
+    } else {
+        json.error = 'Campos não enviados!';
+    }
+
+    response.json(json);
+}
+
+async function _delete(request, response) {
+    let json = {error:'', result:[]};
+    
+    await EntregadorService.delete(request.params.registro);
+
+    response.json(json);
+}
+
 module.exports = {
     selectAll: selectAll,
-    insert: insert
+    insert: insert,
+    update: update,
+    delete: _delete
 }

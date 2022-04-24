@@ -31,7 +31,41 @@ function insert(cpf, nome, loginEmail) {
     })
 }
 
+function update(nome, cpf, registro) {
+    return new Promise((resolve, reject) => {
+        const sql = 'UPDATE gerente SET cpf = ?, nome = ? WHERE registro = ?';
+        const values = [nome, cpf, registro];
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
+        })
+    })
+}
+
+function _delete(registro) {
+    return new Promise((resolve, reject) => {
+        const sql = 'DELETE FROM gerente WHERE registro = ?';
+        const values = registro;
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
+        })
+    })
+}
+
 module.exports = {
     selectAll: selectAll,
-    insert: insert
+    insert: insert,
+    update: update,
+    delete: _delete
 };
