@@ -7,6 +7,8 @@ const LoginController = require('./controllers/LoginController');
 router.get('/login', LoginController.selectAll);
 router.get('/login/:email', LoginController.selectByEmail);
 router.post('/login', LoginController.insert);
+router.put('/login/:email', LoginController.update);
+router.delete('/login/:email', LoginController.delete);
 
 
 // Rotas para CLIENTE

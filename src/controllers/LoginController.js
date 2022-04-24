@@ -38,7 +38,7 @@ async function insert(request, response) {
     let permissao = request.query.permissao;
 
     if (email && senha && permissao) {
-        let login = await LoginService.insert(email, senha, permissao);
+        await LoginService.insert(email, senha, permissao);
         json.result = {email, senha, permissao}
     } else {
         json.error = 'Campos não enviados!';
@@ -47,8 +47,37 @@ async function insert(request, response) {
     response.json(json);
 }
 
+async function update(request, response) {
+    let json = {error:'', result:[]};
+    
+    let loginEmail = request.params.email;
+    let email = request.query.email;
+    let senha = request.query.senha;
+    let permissao = request.query.permissao;
+
+
+    if (loginEmail && email && senha && permissao) {
+        await LoginService.update(email, senha, permissao, loginEmail);
+        json.result = {email, senha, permissao}
+    } else {
+        json.error = 'Campos não enviados!';
+    }
+
+    response.json(json);
+}
+
+async function _delete(request, response) {
+    let json = {error:'', result:[]};
+    
+    await LoginService.delete(request.params.email);
+
+    response.json(json);
+}
+
 module.exports = {
     selectAll: selectAll,
     selectByEmail: selectByEmail,
-    insert: insert
+    insert: insert,
+    update: update,
+    delete: _delete
 }

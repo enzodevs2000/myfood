@@ -53,8 +53,43 @@ function insert(email, senha, permissao) {
     })
 }
 
+function update(email, senha, permissao, loginEmail) {
+    return new Promise((resolve, reject) => {
+        const sql = 'UPDATE login SET email = ?, senha = ?, permissao = ? WHERE email = ?';
+        const values = [email, senha, permissao, loginEmail];
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
+        })
+    })
+}
+
+function _delete(email) {
+    return new Promise((resolve, reject) => {
+        const sql = 'DELETE FROM login WHERE email = ?';
+        const values = email;
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
+        })
+    })
+}
+
+
 module.exports = {
     selectAll: selectAll,
     selectByEmail: selectByEmail,
-    insert: insert
+    insert: insert,
+    update: update,
+    delete: _delete
 };
