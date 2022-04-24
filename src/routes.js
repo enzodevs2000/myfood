@@ -4,8 +4,9 @@ const router = express.Router();
 const LoginController = require('./controllers/LoginController');
 
 // Rotas para LOGIN
-router.get('/login', LoginController.selectLogins);
-router.get('/login/:email', LoginController.selectLoginByEmail);
+router.get('/login', LoginController.selectAll);
+router.get('/login/:email', LoginController.selectByEmail);
+router.post('/login', LoginController.insert);
 
 
 // Rotas para CLIENTE

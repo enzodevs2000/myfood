@@ -33,30 +33,35 @@
 </html>
 
 <script>
-    // fetch('http://localhost:3000/api/login')
-    //     .then(response => response.json())
-    //     .then(jsonObj => {
-    //         console.log(jsonObj.result[0]);
-    //     })
-    
-    // main.js
 
+    // GET ----------------------------------------------------------- //
+    /* 
+     fetch('http://localhost:3000/api/login')
+        .then(response => response.json())
+        .then(jsonObj => {
+            console.log(jsonObj.result[0]);
+        })
+    */
 
-
+    // POST ---------------------------------------------------------- //
+    /* 
     const url = new URL('http://localhost:3000/api/login');
-    url.searchParams.append('email', 'teste');
-    url.searchParams.append('s', 'teste');
-    // POST request using fetch()
+    url.searchParams.append('email', 'paklramDEs@GMAIL.COM');
+    url.searchParams.append('senha', 'params');
+    url.searchParams.append('permissao', '2');
+    
     fetch(url, {
         method: 'POST',
-        mode: 'cors',
         headers: {'Content-type': 'application/json; charset=UTF-8'}
     })
-
-    // Converting to JSON
     .then(response => response.json())
+    .then(json => console.log(json)); 
+    */
 
-    // Displaying results to console
-    .then(json => console.log(json));
+    // ALTER --------------------------------------------------------- //
+
+    
+    // DELETE -------------------------------------------------------- //
+
 
 </script>
