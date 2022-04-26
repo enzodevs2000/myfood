@@ -3,8 +3,7 @@ const LoginService = require('../services/LoginService');
 
 async function selectAll(request, response) {
     let json = {error:'', result:[]};
-
-    let logins = await LoginService.selectLogins();
+    let logins = await LoginService.selectAll();
 
     for (let i in logins) {
         json.result.push({
@@ -21,7 +20,7 @@ async function selectByEmail(request, response) {
     let json = {error:'', result:[]};
 
     let email = request.params.email;
-    let login = await LoginService.selectLoginByEmail(email);
+    let login = await LoginService.selectByEmail(email);
 
     if (login) {
         json.result = login;
