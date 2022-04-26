@@ -2,27 +2,40 @@ a #pagina-atual {
     color: #E5E5E5;
 }
 
-#menu{
+#bar-horizontal{
     list-style: none;
-    padding: 0;
+    padding: 10px 20px;
     border: solid 1px #FFF;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#menu ul li {
-    display: inline;
+    justify-content: space-between;
 
 }
 
-#menu ul li a {
+#bar-horizontal #logo img {
+    width: 160px;
+}
+
+
+#bar-horizontal ul {
+    list-style: none;
+
+}
+
+#bar-horizontal ul li a {
     color: #FFF;
     padding: 20px;
     display: inline-block;
     text-decoration: none;
+    font-size: 20px;
 }
 
-#menu ul li a:hover {
-    color: #E5E5E5;
+#bar-horizontal ul li a:hover {
+    color: #ED1B30;
+    background-color: #FFF;
+}
+
+
+#bar-horizontal #menu{
+    display: flex;
+    align-items: center;
 }
