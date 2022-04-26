@@ -23,3 +23,23 @@ CREATE PROCEDURE mostraGerente (IN cnpj VARCHAR(18))
 		);
     END //
 DELIMITER ;
+
+DROP PROCEDURE IF EXISTS calculaValorTotal;
+
+DELIMITER $$
+CREATE PROCEDURE calculaValorTotal (IN pedidoCod INT, OUT total DOUBLE)
+BEGIN
+	SELECT SUM(p.preco  * pp.quantidade) into total
+	FROM produto p, produtosPedidos pp, pedido pe 
+	WHERE pe.codigo = pedidoCod AND pp.produtoCodigo = p.codigo AND pp.pedidoCodigo = pe.codigo;
+    
+    UPDATE pedido SET valorTotal = total WHERE codigo = pedidoCod;
+END;
+$$
+DELIMITER ;
+
+CALL calculaValorTotal(5, @valorTotal);
+SELECT @valorTotal;
+
+
+

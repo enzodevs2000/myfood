@@ -207,7 +207,7 @@ CREATE TABLE produtosPedidos (
 	quantidade INT,
     observacoes VARCHAR(100),
     produtoCodigo INT,
-    pedidoCodigo INT,
+    pedidoCodigo INT ,
     
     PRIMARY KEY (pedidoCodigo),
     FOREIGN KEY (produtoCodigo) REFERENCES produto(codigo)
