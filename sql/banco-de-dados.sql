@@ -40,7 +40,7 @@ CREATE TABLE login (
 
 CREATE TABLE gerente (
 	registro INT AUTO_INCREMENT,
-    cpf VARCHAR(20),
+    cpf VARCHAR(20) UNIQUE,
     nome VARCHAR(45),
     loginEmail VARCHAR(30),
     
@@ -66,7 +66,7 @@ CREATE TABLE cliente (
 CREATE TABLE entregador (
 	registro INT AUTO_INCREMENT,
     nome VARCHAR(45),
-    cnh VARCHAR(11),
+    cnh VARCHAR(11) UNIQUE,
     telefone VARCHAR(11),
     loginEmail VARCHAR(30),
     

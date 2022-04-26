@@ -1,0 +1,73 @@
+* {
+    padding: 0;
+    margin: 0
+}
+
+fieldset {
+    margin: 10px;
+    border: 1px solid #d5c9cb;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: row;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    
+    font-family: inherit;
+    font-size: 100%;
+
+    font-size: clamp(0.90rem, 0.81rem + 0.43vw, 1.35rem);
+}
+
+button {
+    background-color: #ED1B30;
+    color: #FFF;
+    cursor: pointer
+}
+
+button:hover {
+    background-color: #E5E5E5;
+    color: #ED1B30
+}
+
+
+#corpo h1 {
+    padding: 10px;
+    color: #ED1B30
+}
+
+#corpo {
+    padding: 10px;
+    display: inline;
+}
+#corpo ul {
+    list-style: none;
+}
+
+#informacoes {
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+#botoes {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 50%;
+    padding: 10px 15px;
+    
+}
+
+
+#deleta{
+    margin-left: 10px;
+}

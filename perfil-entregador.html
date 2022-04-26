@@ -7,37 +7,48 @@
 
         <link rel="stylesheet" href="styles/common.css">
         <link rel="stylesheet" href="styles/menu.css">
-        <link rel="stylesheet" href="styles/perfil-cliente.css">
+        <link rel="stylesheet" href="styles/perfil.css">
 
         <title>Perfil - Cliente</title>
     </head>
     <body>
-        <nav id="menu" style=" background-color: #ED1B30;">
-            <ul>
+        <nav id="bar-horizontal" style=" background-color: #ED1B30;">
+            <div id="logo">
+                <img src="./images/white-logo.png" alt="Logo do myfood branca">
+            </div>
+            
+            <ul id="menu">
                 <li ><a href="home-cliente.html">Home</a></li>
                 <li id="pagina-atual"><a href="#">Perfil</a></li>
+                <li><a href="#">Pedidos</a></li>
             </ul>
         </nav>
 
         <div id="corpo">
             <h1>Suas informações:</h1>
-            <ul id="informacoes">
-                <li>
-                    Nome: <input type="text" id="clname" placeholder="Nome">
-                </li>
-                <li>
-                    CNH: <input type="text" id="clcpf" placeholder="CNH">
-                </li>
-                <li>
-                    Telefone: <input type="text" id="cltelefone" placeholder="(DDD)XXXXX-XXXX">
-                </li>
-                <li>
-                    Email: <input type="text" id="clemail" placeholder="Email">
-                </li>
-            </ul>
+            <fieldset>
+                <ul id="informacoes">
+                    <li>
+                        <label for="nome">Nome</label>
+                        <input type="text" id="enname" name="nome" placeholder="Nome">
+                    </li>
+                    <li>
+                        <label for="cnh">CNH</label> 
+                        <input type="text" id="encpf" name="cnh" placeholder="CNH">
+                    </li>
+                    <li>
+                        <label for="telefone">Telefone</label>
+                        <input type="text id=entelefone" name="telefone" placeholder="(DDD)91234-5678">
+                    </li>
+                    <li>
+                        <label for="email">Email</label> 
+                        <input type="text" id="enemail" name="email" placeholder="Email">
+                    </li>
+                </ul>
+        </fieldset>
             <div id="botoes">
-                <button type="submit" id="atualizar">Atualizar</button>
-                <button type="submit" id="deletar">Deletar</button>
+                <button id="atualiza">Atualizar</button>
+                <button id="deleta">Deletar</button>
             </div>
         </div>
     </body>
