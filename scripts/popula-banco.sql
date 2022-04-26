@@ -91,6 +91,7 @@ INSERT INTO produto (preco, nome, categoria, descricao, restauranteCnpj, imagem)
     (10.00, 'Chá gelado', 'Bebidas','chá gelado 500ml', '17.261.661/0007-69', NULL),
     (12.50, 'Sanduíche', 'Hambúrguer', 'Sanduíche de costela', '17.261.661/0007-69', NULL),
     (5.00, 'Chopp', 'Bebidas alcoolicas', 'Chopp 300ml', '17.261.661/0007-69', NULL),
+    (8.00, 'Cheese-Cake', 'Sobremesas', 'Cheese-Cake de morango', '17.261.661/0007-69', load_file('C:\Users\enzon\Desktop\UnB\BD\Projeto\myfood\img\pastel-de-carne.jpg')),
     (8.00, 'Cheese-Cake', 'Sobremesas', 'Cheese-Cake de morango', '17.261.661/0007-69', load_file('C:\Users\enzon\Desktop\UnB\BD\Projeto\myfood\img\pastel-de-carne.jpg'));
     
 INSERT INTO menu VALUES
@@ -126,6 +127,7 @@ INSERT INTO pedido (metPagamento, valorTotal, tempoEspera, clienteCpf, restauran
     ('débito', 20.00, '00:40:00', '222.222.222-22', '01.603.603/0001-40', 2, '72150-100'),
     ('pix', 40.00, '00:50:00', '333.333.333-33', '71.833.552/0001-29', 3, '79800-640'),
     ('dinheiro', 25.00, '01:30:00', '444.444.444-44', '42.591.651/0001-43', 4, '73459-100'),
+    ('débito', 10.00, '00:10:00', '555.555.555-55', '17.261.661/0007-69', 5, '72100-900'),
     ('débito', 10.00, '00:10:00', '555.555.555-55', '17.261.661/0007-69', 5, '72100-900');
 	
 # Não entendi por que os códigos no pedido começaram em 11    
