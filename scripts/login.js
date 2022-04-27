@@ -46,7 +46,7 @@ async function submitForm() {
     const login = await validateLogin();
     
     if (login.valid) {
-        sessionStorage.setItem('user', login.data);
+        sessionStorage.setItem('user', JSON.stringify(login.data));
 
         switch (login.data.permissao) {
             case 1:
