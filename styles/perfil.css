@@ -36,6 +36,12 @@ button:hover {
     color: #ED1B30
 }
 
+legend {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #ED1B30
+}
+
 
 #corpo h1 {
     padding: 10px;
