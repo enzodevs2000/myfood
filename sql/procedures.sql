@@ -38,7 +38,7 @@ END;
 $$
 DELIMITER ;
 
-CALL calculaValorTotal(5, @valorTotal);
+CALL calculaValorTotal(4, @valorTotal);
 SELECT @valorTotal;
 
 

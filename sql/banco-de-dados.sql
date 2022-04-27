@@ -209,7 +209,7 @@ CREATE TABLE produtosPedidos (
     produtoCodigo INT,
     pedidoCodigo INT ,
     
-    PRIMARY KEY (pedidoCodigo),
+    PRIMARY KEY (pedidoCodigo, produtoCodigo),
     FOREIGN KEY (produtoCodigo) REFERENCES produto(codigo)
     ON DELETE CASCADE
     ON UPDATE CASCADE,

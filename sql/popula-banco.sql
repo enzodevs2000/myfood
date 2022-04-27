@@ -197,12 +197,12 @@ SELECT * FROM pedidosEntregador;
 # Verifica a normalização de PRODUTOSPEDIDOS -> OK
 SELECT * FROM produtosPedidos;
 
-SELECT preco
+SELECT p.preco, pp.pedidoCodigo, pp.produtoCodigo
 FROM produto p, produtosPedidos pp
 WHERE p.codigo = pp.produtoCodigo;
 
 # Testar procedure
-#INSERT INTO produtosPedidos VALUES (2, 'nenhuma observacao', 2, 4);
+INSERT INTO produtosPedidos VALUES (2, 'nenhuma observacao', 2, 4);
 
 
 call mostraGerente('13.574.594/0001-96');
