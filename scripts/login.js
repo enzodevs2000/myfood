@@ -27,7 +27,7 @@ async function validateLogin() {
     const senha = document.querySelector('#password').value;
     
     const result = await searchLogin(email);
-    
+    console.log(result);
     if (result.length != 0 && result.senha == senha) {
         return {valid: true, data: result};
     }
@@ -41,8 +41,12 @@ async function validateLogin() {
 /** Persiste os dados do login no sessionStorage do navegador 
  * e redireciona o usuário para a página de acordo, caso seu login
  * exista no banco de dados.
+ * 
+ * @param {Event} O evento disparado.
  */
-async function submitForm() {
+async function submitForm(event) {
+    event.preventDefault();
+
     const login = await validateLogin();
     
     if (login.valid) {
