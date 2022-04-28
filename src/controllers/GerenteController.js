@@ -30,6 +30,19 @@ async function selectByCpf(request, response) {
     response.json(json);
 }
 
+async function selectByEmail(request, response) {
+    let json = {error:'', result:[]};
+
+    let email = request.params.email;
+    let gerente = await GerenteService.selectByEmail(email);
+
+    if (gerente) {
+        json.result = gerente;
+    }
+
+    response.json(json);
+}
+
 async function insert(request, response) {
     let json = {error:'', result:[]};
         
@@ -84,6 +97,7 @@ async function _delete(request, response) {
 module.exports = {
     selectAll: selectAll,
     selectByCpf: selectByCpf,
+    selectByEmail: selectByEmail,
     insert: insert,
     update: update,
     delete: _delete

@@ -15,6 +15,28 @@ function selectAll() {
     })
 }
 
+function selectByEmail(email) {
+    return new Promise((resolve, reject) => {
+        const sql = `CALL selectEntregadorByEmail(?)`;
+        const values = email;
+
+        db.query(sql, values, (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            if (results.length > 0) {
+                resolve(results[0]);
+            } else {
+                resolve(false);
+            }
+
+            resolve(results);
+        })
+    })
+}
+
 function insert(nome, cnh, telefone, loginEmail) {
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO entregador(nome, cnh, telefone, loginEmail) VALUES (?,?,?,?)';
@@ -65,6 +87,7 @@ function _delete(registro) {
 
 module.exports = {
     selectAll: selectAll,
+    selectByEmail: selectByEmail,
     insert: insert,
     update: update,
     delete: _delete

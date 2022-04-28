@@ -18,6 +18,19 @@ async function selectAll(request, response) {
     response.json(json);
 }
 
+async function selectByEmail(request, response) {
+    let json = {error:'', result:[]};
+
+    let email = request.params.email;
+    let cliente = await ClienteService.selectByEmail(email);
+
+    if (cliente) {
+        json.result = cliente;
+    }
+
+    response.json(json);
+}
+
 async function insert(request, response) {
     let json = {error:'', result:[]};
     
@@ -66,6 +79,7 @@ async function _delete(request, response) {
 
 module.exports = {
     selectAll: selectAll,
+    selectByEmail: selectByEmail,
     insert: insert,
     update: update,
     delete: _delete
