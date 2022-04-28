@@ -4,30 +4,29 @@ INSERT INTO permissao VALUES
     (2, 'gerente'),
     (3, 'entregador');
 
-
 # O login precisa ser criado primeiro, pois as tabelas cliente, gerente e entregador refernciam ele.
 INSERT INTO login (email, senha, permissao) VALUES
 	('kleber@example.com', 'abcd123', 1),
     ('enzo@example.com', 'abcd123', 1),
     ('gabi@example.com', 'abcd123', 1),
-    ('luciana@example.com', 'abcd123', 1),
+    ('cesar@example.com', 'abcd123', 1),
     ('ricardo@example.com', 'abcd123', 1),
     ('empresa1@example.com', 'abcd123', 2),
     ('empresa2@example.com', 'abcd123', 2),
     ('empresa3@example.com', 'abcd123', 2),
     ('empresa4@example.com', 'abcd123', 2),
     ('empresa5@example.com', 'abcd123', 2),
-    ('galodeluta@example.com', 'abcd456', 3),
-    ('biu@example.com', 'abcd456', 3),
-    ('entregador1@example.com', 'abcd456', 3),
-    ('entregadoe2@example.com', 'abcd456', 3),
-    ('entregador3@example.com', 'abcd456', 3);
+    ('junior@example.com', 'abcd456', 3),
+    ('danilo@example.com', 'abcd456', 3),
+    ('joazinho@example.com', 'abcd456', 3),
+    ('marcio@example.com', 'abcd456', 3),
+    ('carla@example.com', 'abcd456', 3);
     
 INSERT INTO cliente VALUES
 	('111.111.111-11', 'Kleber Rodrigues', '2002-07-21', '61 91111-1111', 'kleber@example.com'),
     ('222.222.222-22', 'Enzo Nunes', '2001-05-05', '61 92222-2222', 'enzo@example.com'),
     ('333.333.333-33', 'Gabriela Dias', '2002-02-04', '61 93333-3333', 'gabi@example.com'),
-    ('444.444.444-44', 'César Augusto', '1998-12-10', '61 94444-4444', 'luciana@example.com'),
+    ('444.444.444-44', 'César Augusto', '1998-12-10', '61 94444-4444', 'cesar@example.com'),
     ('555.555.555-55', 'Ricardo Martins', '1978-10-23', '61 95555-5555', 'ricardo@example.com');
 
 INSERT INTO gerente(cpf, nome, loginEmail) VALUES
@@ -45,11 +44,11 @@ INSERT INTO restaurante VALUES
     ('17.261.661/0007-69', 'Outback', false, '16:00', '00:00', 0, 5);
     
 INSERT INTO  entregador(nome, cnh, telefone, loginEmail) VALUES
-	('Galo de Luta', '12223242829', '94002-8922', 'galodeluta@example.com'),
-    ('Danilo Silva de Oliveira', '16171819202', '91234-5678', 'biu@example.com'),
-    ('João Santana', '11121314151', '92122-2324', 'entregador1@example.com'),
-    ('Márcio Lopes', '10987654321', '91020-3040', 'entregadoe2@example.com'),
-    ('Carla Cabral', '12345678910', '91111-2222', 'entregador3@example.com');
+	('Junior Lima Faria', '12223242829', '94002-8922', 'junior@example.com'),
+    ('Danilo Silva de Oliveira', '16171819202', '91234-5678', 'danilo@example.com'),
+    ('João Santana de Melo', '11121314151', '92122-2324', 'joazinho@example.com'),
+    ('Márcio Lopes Souza', '10987654321', '91020-3040', 'marcio@example.com'),
+    ('Carla Cabral Castanho', '12345678910', '91111-2222', 'carla@example.com');
     
 INSERT INTO enderecoRestaurante VALUES
 	('73400-489', 'Brasília', 'DF', 'Águas Claras', 'DF Plaza' , 5, '13.574.594/0001-96'),
@@ -203,8 +202,3 @@ WHERE p.codigo = pp.produtoCodigo;
 
 # Testar procedure
 INSERT INTO produtosPedidos VALUES (2, 'nenhuma observacao', 2, 4);
-
-
-call mostraGerente('13.574.594/0001-96');
-
-#DELETE FROM restaurante WHERE gerenteRegistro = 1 OR gerenteRegistro = 2 OR gerenteRegistro = 3 OR gerenteRegistro = 4 OR gerenteRegistro = 5;

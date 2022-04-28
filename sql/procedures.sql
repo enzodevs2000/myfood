@@ -6,6 +6,7 @@ DROP PROCEDURE IF EXISTS selectEntregadorByEmail;
 DROP PROCEDURE IF EXISTS calculaValorTotal;
 DROP PROCEDURE IF EXISTS verificaAberto;
 
+
 # Procedimento que seleciona o cpf do cliente através do email.
 DELIMITER //
 CREATE PROCEDURE selectClienteByEmail (IN email VARCHAR(30)) 
@@ -15,7 +16,9 @@ CREATE PROCEDURE selectClienteByEmail (IN email VARCHAR(30))
 	END //
 DELIMITER ;
 
+
 CALL selectClienteByEmail("enzo@example.com");
+
 
 DELIMITER // 
 CREATE PROCEDURE selectGerenteByEmail (IN email VARCHAR(30))
@@ -25,7 +28,9 @@ CREATE PROCEDURE selectGerenteByEmail (IN email VARCHAR(30))
     END //
 DELIMITER ;
 
+
 CALL selectGerenteByEmail("empresa1@example.com");
+
 
 DELIMITER // 
 CREATE PROCEDURE selectEntregadorByEmail (IN email VARCHAR(30))
@@ -35,7 +40,9 @@ CREATE PROCEDURE selectEntregadorByEmail (IN email VARCHAR(30))
     END //
 DELIMITER ;
 
+
 CALL selectEntregadorByEmail("biu@example.com");
+
 
 DELIMITER $$
 CREATE PROCEDURE calculaValorTotal (IN pedidoCod INT, OUT total DOUBLE)
@@ -45,12 +52,13 @@ BEGIN
 	WHERE pe.codigo = pedidoCod AND pp.produtoCodigo = p.codigo AND pp.pedidoCodigo = pe.codigo;
     
     UPDATE pedido SET valorTotal = total WHERE codigo = pedidoCod;
-END;
-$$
+END; $$
 DELIMITER ;
+
 
 CALL calculaValorTotal(4, @valorTotal);
 SELECT @valorTotal;
+
 
 DELIMITER $$
 CREATE PROCEDURE verificaAberto(IN resCnpj VARCHAR(18), OUT abertura BOOLEAN)
@@ -72,7 +80,6 @@ BEGIN
         SET abertura = TRUE;
 	END IF;
 END $$
-
 DELIMITER ;
 
 CALL verificaAberto('13.574.594/0001-96', @abertura);
