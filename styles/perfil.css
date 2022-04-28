@@ -3,6 +3,8 @@ fieldset {
     justify-content: flex-start;
     align-items: row;
     
+    width: 500px;
+    padding: 0 10px 10px 10px;
     border: 1px solid #d5c9cb;
     border-radius: 5px;
     margin: 10px;
@@ -40,12 +42,16 @@ h1 {
 }
 
 #corpo {
-    display: inline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 10px;
 }
 
 #corpo ul {
     list-style: none;
+    width: 100%;
 }
 
 #informacoes {
@@ -62,6 +68,7 @@ h1 {
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
+    gap: 15px;
     
     width: 50%;
     padding: 10px 15px;
