@@ -38,7 +38,7 @@ INSERT INTO gerente(cpf, nome, loginEmail) VALUES
     ('101.010.101-01', 'Sarah Vitória', 'empresa5@example.com');
     
 INSERT INTO restaurante VALUES
-	('13.574.594/0001-96', 'Burger King', true, '10:00', '04:00', 5, 1),
+	('13.574.594/0001-96', 'Burger King', true, '10:00', '14:00', 5, 1),
     ('01.603.603/0001-40', 'Giraffas', true, '11:00', '22:00', 0, 2),
     ('71.833.552/0001-29', 'Bobs', true, '12:00', '21:00', 2, 3),
     ('42.591.651/0001-43', "McDonald's", true, '11:00', '22:00', 0, 4),

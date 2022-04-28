@@ -1,30 +1,41 @@
 # PROCEDURES que podem ser úteis.
 
+DROP PROCEDURE IF EXISTS selectClienteByEmail;
+DROP PROCEDURE IF EXISTS selectGerenteByEmail;
+DROP PROCEDURE IF EXISTS selectEntregadorByEmail;
+DROP PROCEDURE IF EXISTS calculaValorTotal;
+DROP PROCEDURE IF EXISTS verificaAberto;
+
 # Procedimento que seleciona o cpf do cliente através do email.
 DELIMITER //
-CREATE PROCEDURE selectCpfByEmail (IN email VARCHAR(30))
+CREATE PROCEDURE selectClienteByEmail (IN email VARCHAR(30)) 
 	BEGIN
-		SELECT cpf FROM cliente
-		WHERE loginCodigo = (
-			SELECT codigo FROM login
-			WHERE login.email = email
-		);
+		SELECT * FROM cliente
+		WHERE loginEmail = email;
 	END //
 DELIMITER ;
 
+CALL selectClienteByEmail("enzo@example.com");
+
 DELIMITER // 
-CREATE PROCEDURE mostraGerente (IN cnpj VARCHAR(18))
+CREATE PROCEDURE selectGerenteByEmail (IN email VARCHAR(30))
 	BEGIN
 		SELECT * FROM gerente
-        WHERE registro = (
-			SELECT gerenteRegistro
-            FROM restaurante
-            WHERE restaurante.cnpj = cnpj
-		);
+        WHERE loginEmail = email;
     END //
 DELIMITER ;
 
-DROP PROCEDURE IF EXISTS calculaValorTotal;
+CALL selectGerenteByEmail("empresa1@example.com");
+
+DELIMITER // 
+CREATE PROCEDURE selectEntregadorByEmail (IN email VARCHAR(30))
+	BEGIN
+		SELECT * FROM entregador
+        WHERE loginEmail = email;
+    END //
+DELIMITER ;
+
+CALL selectEntregadorByEmail("biu@example.com");
 
 DELIMITER $$
 CREATE PROCEDURE calculaValorTotal (IN pedidoCod INT, OUT total DOUBLE)
@@ -41,5 +52,28 @@ DELIMITER ;
 CALL calculaValorTotal(4, @valorTotal);
 SELECT @valorTotal;
 
+DELIMITER $$
+CREATE PROCEDURE verificaAberto(IN resCnpj VARCHAR(18), OUT abertura BOOLEAN)
+BEGIN
+	DECLARE horAbertura TIME;
+    DECLARE horFechamento TIME;
+    
+	SELECT horarioAbertura into horAbertura
+    FROM restaurante WHERE cnpj = resCnpj;
+    
+    SELECT horarioFechamento into horFechamento
+    FROM restaurante WHERE cnpj = resCnpj;
+    
+    IF CURTIME() > horFechamento OR CURTIME() < horAbertura THEN
+		UPDATE restaurante SET aberto = FALSE WHERE cnpj = resCnpj;
+        SET abertura = FALSE;
+	ELSE
+		UPDATE restaurante SET aberto = TRUE WHERE cnpj = resCnpj;
+        SET abertura = TRUE;
+	END IF;
+END $$
 
+DELIMITER ;
 
+CALL verificaAberto('13.574.594/0001-96', @abertura);
+SELECT @abertura
