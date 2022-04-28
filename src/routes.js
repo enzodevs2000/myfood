@@ -7,8 +7,8 @@ const EntregadorController = require('./controllers/EntregadorController');
 const GerenteController = require('./controllers/GerenteController');
 const RestauranteController = require('./controllers/RestauranteController');
 const EnderecoRestauranteController = require('./controllers/EnderecoRestauranteController')
+
 const { route } = require('express/lib/router');
-const RestauranteController = require('./controllers/RestauranteController');
 
 // Rotas para LOGIN
 router.get('/login', LoginController.selectAll);
@@ -38,18 +38,13 @@ router.put('/entregador', EntregadorController.update);
 router.delete('/entregador', EntregadorController.delete);
 
 // Rotas para RESTAURANTE
-<<<<<<< HEAD
 router.get('/restaurante', RestauranteController.selectAll);
 router.post('/restaurante', RestauranteController.insert);
-
-
-=======
 router.put('/restaurante', RestauranteController.update);
-router.delete('/restaurante',RestauranteController.delete);
+router.delete('/restaurante', RestauranteController.delete);
 
 // Rotas para ENDERECORESTAURANTE
 router.get('/enderecorestaurante', EnderecoRestauranteController.selectAll);
 router.post('/enderecorestaurante', EnderecoRestauranteController.insert);
->>>>>>> 71171bad049abbf5d1de412c846e2ce476662ff5
 
 module.exports = router;

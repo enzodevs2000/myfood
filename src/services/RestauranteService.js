@@ -1,7 +1,6 @@
 const { acceptsEncodings, accepts } = require('express/lib/request');
 const db = require('../db');
 
-<<<<<<< HEAD
 
 function selectAll() {
     return new Promise((resolve, reject) => {
@@ -19,11 +18,6 @@ function selectAll() {
 function insert(cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro) {
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO restaurante VALUES (?,?,?,?,?,?,?)';
-=======
-function update(nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro, cnpj) {
-    return new Promise((resolve, reject) => {
-        const sql = 'UPDATE restaurante SET cnpj = ?, nome = ?, aberto = ?, horarioAbertura = ?, horarioFechamento = ?, taxaDeEntrega = ?, gerenteRegistro = ? WHERE cnpj = ?;';
->>>>>>> 71171bad049abbf5d1de412c846e2ce476662ff5
         const values = [cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro];
 
         db.query(sql, values, (error, results) => {
@@ -37,7 +31,6 @@ function update(nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega,
     })
 }
 
-<<<<<<< HEAD
 function update(nome, dataNascimento, telefone, loginEmail) {
     return new Promise((resolve, reject) => {
         const sql = 'UPDATE restaurante SET nome = ?, dataNascimento = ?, telefone = ? WHERE loginEmail = ?';
@@ -54,8 +47,6 @@ function update(nome, dataNascimento, telefone, loginEmail) {
     })
 }
 
-=======
->>>>>>> 71171bad049abbf5d1de412c846e2ce476662ff5
 function _delete(cnpj) {
     return new Promise((resolve, reject) => {
         const sql = 'DELETE FROM restaurante WHERE cnpj = ?';
@@ -73,14 +64,8 @@ function _delete(cnpj) {
 }
 
 module.exports = {
-<<<<<<< HEAD
     selectAll: selectAll,
     insert: insert,
     update: update,
     delete: _delete
 };
-=======
-    update : update,
-    delete : _delete
-}
->>>>>>> 71171bad049abbf5d1de412c846e2ce476662ff5

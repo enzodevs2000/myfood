@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const RestauranteService = require('../services/RestauranteService');
 
 async function selectAll(request, response) {
@@ -25,15 +24,6 @@ async function insert(request, response) {
     let json = {error:'', result:[]};
     
     let cnpj = request.query.cnpj;
-=======
-const res = require('express/lib/response');
-const LoginService = require('../services/RestauranteService');
-
-async function update(request, response) {
-    let json = {error:'', result:[]};
-    
-    let cnpj = request.params.cnpj;
->>>>>>> 71171bad049abbf5d1de412c846e2ce476662ff5
     let nome = request.query.nome;
     let aberto = request.query.aberto;
     let horarioAbertura = request.query.horarioAbertura;
@@ -41,7 +31,6 @@ async function update(request, response) {
     let taxaDeEntrega = request.query.taxaDeEntrega;
     let gerenteRegistro = request.query.gerenteRegistro;
 
-<<<<<<< HEAD
     // let cnpj = request.body.cnpj;
     // let nome = request.body.nome;
     // let aberto = request.body.aberto;
@@ -89,12 +78,6 @@ async function update(request, response) {
     if (loginEmail && nome && dataNascimento && telefone) {
         await RestauranteService.update(nome, dataNascimento, telefone, loginEmail);
         json.result = {nome, dataNascimento, telefone, loginEmail};
-=======
-
-    if (cnpj && nome && aberto && horarioAbertura && horarioFechamento && taxaDeEntrega && gerenteRegistro) {
-        await RestauranteService.update(nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro, cnpj);
-        json.result = {nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro}
->>>>>>> 71171bad049abbf5d1de412c846e2ce476662ff5
     } else {
         json.error = 'Campos não enviados!';
     }
@@ -111,11 +94,8 @@ async function _delete(request, response) {
 }
 
 module.exports = {
-<<<<<<< HEAD
     selectAll: selectAll,
     insert: insert,
-=======
->>>>>>> 71171bad049abbf5d1de412c846e2ce476662ff5
     update: update,
     delete: _delete
 }
