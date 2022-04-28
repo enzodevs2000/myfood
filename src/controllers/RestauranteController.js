@@ -39,14 +39,6 @@ async function insert(request, response) {
     // let taxaDeEntrega = request.body.taxaDeEntrega;
     // let gerenteRegistro = request.body.gerenteRegistro;
 
-    console.log(`CNPJ: ${cnpj}`);
-    console.log(`Nome: ${nome}`);
-    console.log(`Aberto: ${aberto}`);
-    console.log(`Horario de Abertura: ${horarioAbertura}`);
-    console.log(`Horario de Fechamento: ${horarioFechamento}`);
-    console.log(`Taxa de Entrega: ${taxaDeEntrega}`);
-    console.log(`Registro Gerente: ${gerenteRegistro}`);
-
     if (cnpj && nome && aberto && horarioAbertura && horarioFechamento && taxaDeEntrega && gerenteRegistro) {
         let restaurante = await RestauranteService.insert(cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro);
 

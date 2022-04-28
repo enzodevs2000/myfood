@@ -3,12 +3,12 @@ a #pagina-atual {
 }
 
 #bar-horizontal{
-    list-style: none;
-    padding: 10px 20px;
-    border: solid 1px #FFF;
     display: flex;
     justify-content: space-between;
-
+    
+    padding: 10px 20px;
+    
+    list-style: none;
 }
 
 #bar-horizontal #logo img {
@@ -18,20 +18,20 @@ a #pagina-atual {
 
 #bar-horizontal ul {
     list-style: none;
-
 }
 
 #bar-horizontal ul li a {
-    color: #FFF;
-    padding: 20px;
     display: inline-block;
+    padding: 20px;
+
     text-decoration: none;
+    color: #FFF;
     font-size: 20px;
 }
 
 #bar-horizontal ul li a:hover {
-    color: #ED1B30;
     background-color: #FFF;
+    color: #ED1B30;
 }
 
 
