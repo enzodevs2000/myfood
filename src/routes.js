@@ -5,6 +5,8 @@ const LoginController = require('./controllers/LoginController');
 const ClienteController = require('./controllers/ClienteController');
 const EntregadorController = require('./controllers/EntregadorController');
 const GerenteController = require('./controllers/GerenteController');
+const RestauranteController = require('./controllers/RestauranteController');
+const EnderecoRestauranteController = require('./controllers/EnderecoRestauranteController')
 const { route } = require('express/lib/router');
 
 // Rotas para LOGIN
@@ -32,5 +34,13 @@ router.get('/entregador', EntregadorController.selectAll);
 router.post('/entregador', EntregadorController.insert);
 router.put('/entregador', EntregadorController.update);
 router.delete('/entregador', EntregadorController.delete);
+
+// Rotas para RESTAURANTE
+router.put('/restaurante', RestauranteController.update);
+router.delete('/restaurante',RestauranteController.delete);
+
+// Rotas para ENDERECORESTAURANTE
+router.get('/enderecorestaurante', EnderecoRestauranteController.selectAll);
+router.post('/enderecorestaurante', EnderecoRestauranteController.insert);
 
 module.exports = router;
