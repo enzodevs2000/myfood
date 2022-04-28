@@ -26,30 +26,37 @@
 
         <div id="corpo">
             <h1>Suas informações:</h1>
+
             <fieldset>
                 <legend>Entregador</legend>
+                
                 <ul id="informacoes">
                     <li>
                         <label for="nome">Nome</label>
-                        <input type="text" id="enname" name="nome" placeholder="Nome">
+                        <input type="text" id="nome" name="nome" placeholder="Nome" disabled>
                     </li>
                     <li>
                         <label for="cnh">CNH</label> 
-                        <input type="text" id="encpf" name="cnh" placeholder="CNH">
+                        <input type="text" id="cnh" name="cnh" placeholder="CNH" disabled>
                     </li>
                     <li>
                         <label for="telefone">Telefone</label>
-                        <input type="text id=entelefone" name="telefone" placeholder="(DDD)91234-5678">
+                        <input type="text" id="telefone" name="telefone" placeholder="(DDD)91234-5678" disabled>
                     </li>
                     <li>
                         <label for="email">Email</label> 
-                        <input type="text" id="enemail" name="email" placeholder="Email">
+                        <input type="text" id="email" name="email" placeholder="Email" disabled>
+                    </li>
+                    <li>
+                        <label for="senha">Senha</label> 
+                        <input type="text" id="senha" name="senha" placeholder="Senha" disabled>
                     </li>
                 </ul>
-        </fieldset>
+            </fieldset>
+            
             <div id="botoes">
-                <button id="atualiza">Atualizar</button>
-                <button id="deleta">Deletar</button>
+                <button id="atualizar">Atualizar</button>
+                <button id="deletar">Deletar</button>
             </div>
         </div>
     </body>
