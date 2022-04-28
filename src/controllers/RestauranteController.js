@@ -61,15 +61,18 @@ async function insert(request, response) {
 async function update(request, response) {
     let json = {error:'', result:[]};
     
-    let loginEmail = request.params.loginEmail;
+    let cnpj = request.params.cnpj;
     let nome = request.query.nome;
-    let dataNascimento = request.query.dataNascimento;
-    let telefone = request.query.telefone;
+    let aberto = request.query.aberto;
+    let horarioAbertura = request.query.horarioAbertura;
+    let horarioFechamento = request.query.horarioFechamento;
+    let taxaDeEntrega = request.query.taxaDeEntrega;
+    let gerenteRegistro = request.query.gerenteRegistro;
 
 
-    if (loginEmail && nome && dataNascimento && telefone) {
-        await RestauranteService.update(nome, dataNascimento, telefone, loginEmail);
-        json.result = {nome, dataNascimento, telefone, loginEmail};
+    if (cnpj && nome && aberto && horarioAbertura && horarioFechamento && taxaDeEntrega && gerenteRegistro) {
+        await RestauranteService.update(nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro, cnpj);
+        json.result = {nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro}
     } else {
         json.error = 'Campos não enviados!';
     }

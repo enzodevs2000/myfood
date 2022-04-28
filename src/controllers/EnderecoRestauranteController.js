@@ -1,5 +1,5 @@
 const res = require('express/lib/response');
-const LoginService = require('../services/EnderecoRestauranteService');
+const EnderecoRestauranteService = require('../services/EnderecoRestauranteService');
 
 async function selectAll(request, response) {
     let json = {error:'', result:[]};
