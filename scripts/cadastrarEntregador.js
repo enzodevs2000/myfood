@@ -3,7 +3,7 @@ async function createLogin(email, senha) {
 
     url.searchParams.append('email', email);
     url.searchParams.append('senha', senha);
-    url.searchParams.append('permissao', 1);
+    url.searchParams.append('permissao', 3);
 
     const init = {
         method: 'POST',
@@ -17,12 +17,11 @@ async function createLogin(email, senha) {
     return jsonData.result;
 }
 
-async function createCliente(cpf, nome, dataNascimento, telefone, loginEmail) {
-    const url = new URL('http://localhost:3000/api/cliente');
+async function createEntregador(nome, cnh, telefone, loginEmail) {
+    const url = new URL('http://localhost:3000/api/entregador');
 
-    url.searchParams.append('cpf', cpf);
+    url.searchParams.append('cnh', cnh);
     url.searchParams.append('nome', nome);
-    url.searchParams.append('dataNascimento', dataNascimento);
     url.searchParams.append('telefone', telefone);
     url.searchParams.append('loginEmail', loginEmail);
 
@@ -35,7 +34,7 @@ async function createCliente(cpf, nome, dataNascimento, telefone, loginEmail) {
 
     const jsonData = await initialFetch.json();
 
-    return jsonData.result;
+    return jsonData;
 }
 
 
@@ -46,15 +45,14 @@ async function createAccount(event) {
 
     const email = document.querySelector('#email').value; 
     const senha = document.querySelector('#password').value; 
-    const cpf = document.querySelector('#cpf').value; 
     const nome = document.querySelector('#name').value; 
-    const dataNascimento = document.querySelector('#birth').value; 
+    const cnh = document.querySelector('#cnh').value; 
     const telefone = document.querySelector('#phone').value; 
 
     await createLogin(email, senha);
-    const responseInfo = await createCliente(cpf, nome, dataNascimento, telefone, email);
+    const responseInfo = await createEntregador(nome, cnh, telefone, email);
 
-    if (responseInfo.length != 0) {
+    if (responseInfo.result.length != 0) {
         window.location.replace('./login.html');
     } else {
         alert('Erro no cadastro!');

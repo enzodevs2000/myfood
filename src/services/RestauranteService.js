@@ -4,7 +4,7 @@ const db = require('../db');
 
 function selectAll() {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM gerente', (error, results) => {
+        db.query('SELECT * FROM restaurante', (error, results) => {
             if (error) {
                 reject(error);
                 return;
@@ -15,32 +15,10 @@ function selectAll() {
     })
 }
 
-function selectByCpf(cpf) {
+function insert(cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro) {
     return new Promise((resolve, reject) => {
-        const sql = 'SELECT * FROM gerente WHERE cpf=?';
-        const values = cpf;
-
-        db.query(sql, values, (error, results) => {
-            if (error) {
-                reject(error);
-                return;
-            }
-
-            if (results.length > 0) {
-                resolve(results[0]);
-            } else {
-                resolve(false);
-            }
-
-            resolve(results);
-        })
-    })
-}
-
-function insert(cpf, nome, loginEmail) {
-    return new Promise((resolve, reject) => {
-        const sql = 'INSERT INTO gerente(cpf, nome, loginEmail) VALUES (?,?,?)';
-        const values = [cpf, nome, loginEmail];
+        const sql = 'INSERT INTO restaurante VALUES (?,?,?,?,?,?,?)';
+        const values = [cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro];
 
         db.query(sql, values, (error, results) => {
             if (error) {
@@ -53,10 +31,10 @@ function insert(cpf, nome, loginEmail) {
     })
 }
 
-function update(nome, cpf, registro) {
+function update(nome, dataNascimento, telefone, loginEmail) {
     return new Promise((resolve, reject) => {
-        const sql = 'UPDATE gerente SET cpf = ?, nome = ? WHERE registro = ?';
-        const values = [nome, cpf, registro];
+        const sql = 'UPDATE restaurante SET nome = ?, dataNascimento = ?, telefone = ? WHERE loginEmail = ?';
+        const values = [nome, dataNascimento, telefone, loginEmail];
 
         db.query(sql, values, (error, results) => {
             if (error) {
@@ -69,10 +47,10 @@ function update(nome, cpf, registro) {
     })
 }
 
-function _delete(registro) {
+function _delete(cnpj) {
     return new Promise((resolve, reject) => {
-        const sql = 'DELETE FROM gerente WHERE registro = ?';
-        const values = registro;
+        const sql = 'DELETE FROM restaurante WHERE cnpj = ?';
+        const values = cnpj;
 
         db.query(sql, values, (error, results) => {
             if (error) {
@@ -87,7 +65,6 @@ function _delete(registro) {
 
 module.exports = {
     selectAll: selectAll,
-    selectByCpf: selectByCpf,
     insert: insert,
     update: update,
     delete: _delete

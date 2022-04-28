@@ -17,17 +17,38 @@ async function selectAll(request, response) {
     response.json(json);
 }
 
+async function selectByCpf(request, response) {
+    let json = {error:'', result:[]};
+
+    let cpf = request.params.cpf;
+    let gerente = await GerenteService.selectByCpf(cpf);
+
+    if (gerente) {
+        json.result = gerente;
+    }
+
+    response.json(json);
+}
+
 async function insert(request, response) {
     let json = {error:'', result:[]};
-    
-    
+        
     let cpf = request.query.cpf;
     let nome = request.query.nome;
     let loginEmail = request.query.loginEmail;
 
+    // let cpf = request.body.cpf;
+    // let nome = request.body.nome;
+    // let loginEmail = request.body.loginEmail;
+
     if (cpf && nome && loginEmail) {
         let gerente = await GerenteService.insert(cpf, nome, loginEmail);
-        json.result = {cpf: cpf, nome: nome, loginEmail : loginEmail}
+
+        json.result = {
+            cpf: cpf, 
+            nome: nome, 
+            loginEmail: loginEmail
+        }
     } else {
         json.error = 'Campos não enviados!';
     }
@@ -62,6 +83,7 @@ async function _delete(request, response) {
 
 module.exports = {
     selectAll: selectAll,
+    selectByCpf: selectByCpf,
     insert: insert,
     update: update,
     delete: _delete

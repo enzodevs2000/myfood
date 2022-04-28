@@ -7,29 +7,36 @@
     <title>Criar conta</title>
 
     <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/criacao-contas.css">
     <link rel="stylesheet" href="../styles/cadastrar-gerente.css">
 </head>
 
 <body>
     <img src="../images/red-logo.png">
 
-    <main>
+    <main class>
         <div class="content">
             <div class="icon">
-                <a href="./criar-conta.html">
-                    <img id="back" src="../images/arrow-left-solid.svg">
-                </a>
+                <img id="back" src="../images/arrow-left-solid.svg">
             </div>
 
             <div class="content-main">
-                <h1>Alcance mais com o myFood!</h1>
+                <h1 id="titulo">Seja parceiro do myFood!</h1>
+                <!-- <h1>Nos informe sobre seu restaurante!</h1> -->
                 
                 <form spellcheck="false">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Senha">
                     <input id="cpf" type="text" placeholder="CPF">
                     <input id="name" type="text" placeholder="Nome">
-                    <input id="birth" type="text" placeholder="Data de Nascimento">
-                    <input id="phone" type="text" placeholder="Telefone">
-                    <button type="submit">Criar conta</button>
+                    <button id="continuar" type="button">Continuar</button>
+                    
+                    <input id="cnpj" type="text" placeholder="CNPJ">
+                    <input id="nome-restaurante" type="text" placeholder="Nome do restaurante">
+                    <input id="horario-abertura" type="time">
+                    <input id="horario-fechamento" type="time">
+                    <input id="taxa-entrega" type="number" placeholder="Taxa de entrega">
+                    <button id="criar-conta" type="button">Criar conta</button>
                 </form>
             </div>
         </div>
@@ -37,4 +44,4 @@
 </body>
 </html>
 
-<script src="../scripts/criarConta.js"></script>
+<script src="../scripts/cadastrarGerente.js"></script>

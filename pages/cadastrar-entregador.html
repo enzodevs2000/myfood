@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Criar conta</title>
+
+    <link rel="stylesheet" href="../styles/common.css">
+    <link rel="stylesheet" href="../styles/criacao-contas.css">
+    <link rel="stylesheet" href="../styles/cadastrar-entregador.css">
 </head>
+
 <body>
-    <h1>cadastrar entregador</h1>
+    <img src="../images/red-logo.png">
+
+    <main>
+        <div class="content">
+            <div class="icon">
+                <a href="./escolher-conta.html">
+                    <img id="back" src="../images/arrow-left-solid.svg">
+                </a>
+            </div>
+
+            <div class="content-main">
+                <h1>Seja um entregador myFood!</h1>
+                
+                <form spellcheck="false">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Senha">
+                    <input id="name" type="text" placeholder="Nome">
+                    <input id="cnh" type="text" placeholder="CNH">
+                    <input id="phone" type="text" placeholder="Telefone">
+                    <button type="submit">Criar conta</button>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
+
+<script src="../scripts/cadastrarEntregador.js"></script>

@@ -6,6 +6,7 @@ const ClienteController = require('./controllers/ClienteController');
 const EntregadorController = require('./controllers/EntregadorController');
 const GerenteController = require('./controllers/GerenteController');
 const { route } = require('express/lib/router');
+const RestauranteController = require('./controllers/RestauranteController');
 
 // Rotas para LOGIN
 router.get('/login', LoginController.selectAll);
@@ -23,6 +24,7 @@ router.delete('/cliente', ClienteController.delete);
 
 // Rotas para GERENTE
 router.get('/gerente', GerenteController.selectAll);
+router.get('/gerente/:cpf', GerenteController.selectByCpf);
 router.post('/gerente', GerenteController.insert);
 router.put('/gerente', GerenteController.update);
 router.delete('/gerente', GerenteController.delete);
@@ -32,5 +34,11 @@ router.get('/entregador', EntregadorController.selectAll);
 router.post('/entregador', EntregadorController.insert);
 router.put('/entregador', EntregadorController.update);
 router.delete('/entregador', EntregadorController.delete);
+
+// Rotas para RESTAURANTE
+router.get('/restaurante', RestauranteController.selectAll);
+router.post('/restaurante', RestauranteController.insert);
+
+
 
 module.exports = router;

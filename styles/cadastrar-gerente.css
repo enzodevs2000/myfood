@@ -1,4 +1,4 @@
-/* Login common styles ---------------------------------------- */
+/* 
 
 h1 {
     color: white;
@@ -26,11 +26,6 @@ img {
     width: 160px;
 }
 
-#back {
-    position: static;
-    width: 30px;
-}
-
 p {
     color: white;
 }
@@ -45,7 +40,7 @@ button {
     background-color: var(--gray);
 }
 
-/* ------------------------------------------------------------ */
+
 
 body {
     display: flex;
@@ -99,4 +94,22 @@ form {
     width: 100%;
 }
 
+#back {
+    position: static;
+    width: 30px;
+    cursor: pointer;
+} */
 
+
+
+.content-main {
+    gap: 50px;
+}
+
+#back {
+    cursor: pointer;
+}
+
+#cnpj, #nome-restaurante, #horario-abertura, #horario-fechamento, #taxa-entrega, #criar-conta {
+   display: none;
+}

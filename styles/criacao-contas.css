@@ -1,12 +1,6 @@
-/* 
-h1 {
-    color: white;
-    font-size: 1.5rem;
-}
-
 input, button {
     width: 100%;
-    padding: 10px 15px;
+    padding: 10px 18px;
     border: none;
     border-radius: 5px;
     outline: none;
@@ -14,15 +8,17 @@ input, button {
     font-family: inherit;
     font-size: 100%;
 
-    font-size: 1rem;
+    font-size: clamp(0.90rem, 0.81rem + 0.43vw, 1.35rem);
 }
 
-img {
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    
-    width: 160px;
+button {
+    cursor: pointer;
+    background-color: var(--gray);
+}
+
+h1 {
+    color: white;
+    font-size: 1.5rem;
 }
 
 p {
@@ -34,11 +30,15 @@ a {
     color: inherit;
 }
 
-button {
-    cursor: pointer;
-    background-color: var(--gray);
+img {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    
+    width: 160px;
 }
 
+/* ----------------------------------------------------------- */
 
 body {
     display: flex;
@@ -55,7 +55,7 @@ main {
 
     width: 500px;
     height: auto;
-    padding: 30px 30px;
+    padding: 40px 30px;
     margin: auto;
     border-radius: 10px;
     box-shadow: 0px 0px 11px -3px rgb(0 0 0 / 20%);
@@ -63,9 +63,20 @@ main {
     background-color: var(--red);
 }
 
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+
+    width: 100%;
+}
+
 .content {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 
     width: 100%;
 }
@@ -75,47 +86,13 @@ main {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 25px;
+    gap: 80px;
     
     height: 100%;
-    width: 100%;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 15px;
-
     width: 100%;
 }
 
 #back {
     position: static;
     width: 30px;
-} */
-
-h1 {
-    font-size: 1.5rem;
-}
-
-input, button {
-    font-size: 1rem;
-}
-
-main {
-    padding: 30px 30px;
-}
-
-form {
-    gap: 15px;
-}
-
-.content {
-    gap: 0;
-}
-
-.content-main {
-    gap: 25px;
 }
