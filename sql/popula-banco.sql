@@ -1,4 +1,4 @@
-# Como permissão define o tipo de login, ela precisa ser criada antes de login.
+ # Como permissão define o tipo de login, ela precisa ser criada antes de login.
 INSERT INTO permissao VALUES
 	(1, 'cliente'),
     (2, 'gerente'),
