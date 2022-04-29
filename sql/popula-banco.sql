@@ -65,33 +65,33 @@ INSERT INTO enderecoCliente VALUES
 	('72100-900', 'Brasília', 'DF', 'Guará', 'Área Especial 7' , 20, '555.555.555-55');
     
    
-INSERT INTO produto (preco, nome, categoria, descricao, restauranteCnpj, imagem) VALUES
-	(5.50, 'Refrigerante Refill', 'Refrigerante', 'Pegue o quanto quiser!', '13.574.594/0001-96', NULL),
-    (12.50, 'Whopper', 'Hambúrguer', 'Sanduíche', '13.574.594/0001-96', NULL),
-    (3.50, 'Batata-Fritas', 'Petisco', '20g de fritas', '13.574.594/0001-96', NULL),
-    (15.00, 'Hamburguer Vegetariano', 'Hambúrguer', 'Hamburguer de plantas', '13.574.594/0001-96', NULL),
-    (3.00, 'Casquinha de sorvete', 'Sorvetes', 'Casquinha de baunilha', '13.574.594/0001-96', NULL),
-    (10.00, 'Strogonoff de frango', 'Pratos', 'Prato de strogonoff', '01.603.603/0001-40', NULL),
-    (15.00, 'Linguiça Toscana', 'Pratos', 'Prato com arroz e duas linguiças', '01.603.603/0001-40', NULL),
-    (20.00, 'Salada', 'Saladas', 'Salada de alface e tomate', '01.603.603/0001-40', NULL),
-    (12.50, 'Casquinha', 'Sorvetes', 'Casquinha', '01.603.603/0001-40', NULL),
-    (13.00, 'Sundae', 'Sorvetes', 'Sorvete', '01.603.603/0001-40', NULL),
-    (12.50, 'X-burguer', 'Hambúrguer', 'Sanduiche com 2 hamburgueres', '71.833.552/0001-29', NULL),
-    (15.00, 'Fritas', 'Petisco', '30g', '71.833.552/0001-29', NULL),
-    (5.00, 'Coca-Cola', 'Refrigerante', 'Refrigerante', '71.833.552/0001-29', NULL),
-    (5.00, 'Guaraná', 'Refrigerante', 'Refrigerante 200ML', '71.833.552/0001-29', NULL),
-    (14.00, 'Milk Shake Ovomaltine', 'Milk-shakes', '500Ml de Ovomaltine', '71.833.552/0001-29', NULL),
-    (15.00, 'Quarteirão', 'Hambúrguer', 'Sanduiche com 2 hamburgueres', '42.591.651/0001-43', NULL),
-    (8.00, 'Milk Shake Morango', 'Milk-shakes', '500 Ml', '42.591.651/0001-43', NULL),
-    (6.00, 'MC maçã', 'Saudável', 'Lanche saudável', '42.591.651/0001-43', NULL),
-    (10.00, 'Cheddar', 'Hambúrguer', 'Sanduíche de Cheddar', '42.591.651/0001-43', NULL),
-    (5.00, 'Fanta-laranja', 'Refrigerante', 'Refigerante 200ml', '42.591.651/0001-43', NULL),
-    (25.00, 'Costela suína', 'Churrasco', 'carne de porco', '17.261.661/0007-69', NULL),
-    (10.00, 'Chá gelado', 'Bebidas','chá gelado 500ml', '17.261.661/0007-69', NULL),
-    (12.50, 'Sanduíche', 'Hambúrguer', 'Sanduíche de costela', '17.261.661/0007-69', NULL),
-    (5.00, 'Chopp', 'Bebidas alcoolicas', 'Chopp 300ml', '17.261.661/0007-69', NULL),
-    (8.00, 'Cheese-Cake', 'Sobremesas', 'Cheese-Cake de morango', '17.261.661/0007-69', load_file('C:\Users\enzon\Desktop\UnB\BD\Projeto\myfood\img\pastel-de-carne.jpg')),
-    (8.00, 'Cheese-Cake', 'Sobremesas', 'Cheese-Cake de morango', '17.261.661/0007-69', load_file('C:\Users\enzon\Desktop\UnB\BD\Projeto\myfood\img\pastel-de-carne.jpg'));
+INSERT INTO produto (preco, nome, categoria, descricao, restauranteCnpj) VALUES
+	(5.50, 'Refrigerante Refill', 'Refrigerante', 'Pegue o quanto quiser!', '13.574.594/0001-96'),
+    (12.50, 'Whopper', 'Hambúrguer', 'Sanduíche', '13.574.594/0001-96' ),
+    (3.50, 'Batata-Fritas', 'Petisco', '20g de fritas', '13.574.594/0001-96'),
+    (15.00, 'Hamburguer Vegetariano', 'Hambúrguer', 'Hamburguer de plantas', '13.574.594/0001-96'),
+    (3.00, 'Casquinha de sorvete', 'Sorvetes', 'Casquinha de baunilha', '13.574.594/0001-96'),
+    (10.00, 'Strogonoff de frango', 'Pratos', 'Prato de strogonoff', '01.603.603/0001-40'),
+    (15.00, 'Linguiça Toscana', 'Pratos', 'Prato com arroz e duas linguiças', '01.603.603/0001-40'),
+    (20.00, 'Salada', 'Saladas', 'Salada de alface e tomate', '01.603.603/0001-40'),
+    (12.50, 'Casquinha', 'Sorvetes', 'Casquinha', '01.603.603/0001-40'),
+    (13.00, 'Sundae', 'Sorvetes', 'Sorvete', '01.603.603/0001-40'),
+    (12.50, 'X-burguer', 'Hambúrguer', 'Sanduiche com 2 hamburgueres', '71.833.552/0001-29'),
+    (15.00, 'Fritas', 'Petisco', '30g', '71.833.552/0001-29'),
+    (5.00, 'Coca-Cola', 'Refrigerante', 'Refrigerante', '71.833.552/0001-29'),
+    (5.00, 'Guaraná', 'Refrigerante', 'Refrigerante 200ML', '71.833.552/0001-29'),
+    (14.00, 'Milk Shake Ovomaltine', 'Milk-shakes', '500Ml de Ovomaltine', '71.833.552/0001-29'),
+    (15.00, 'Quarteirão', 'Hambúrguer', 'Sanduiche com 2 hamburgueres', '42.591.651/0001-43'),
+    (8.00, 'Milk Shake Morango', 'Milk-shakes', '500 Ml', '42.591.651/0001-43'),
+    (6.00, 'MC maçã', 'Saudável', 'Lanche saudável', '42.591.651/0001-43'),
+    (10.00, 'Cheddar', 'Hambúrguer', 'Sanduíche de Cheddar', '42.591.651/0001-43'),
+    (5.00, 'Fanta-laranja', 'Refrigerante', 'Refigerante 200ml', '42.591.651/0001-43'),
+    (25.00, 'Costela suína', 'Churrasco', 'carne de porco', '17.261.661/0007-69'),
+    (10.00, 'Chá gelado', 'Bebidas','chá gelado 500ml', '17.261.661/0007-69'),
+    (12.50, 'Sanduíche', 'Hambúrguer', 'Sanduíche de costela', '17.261.661/0007-69'),
+    (5.00, 'Chopp', 'Bebidas alcoolicas', 'Chopp 300ml', '17.261.661/0007-69'),
+    (8.00, 'Cheese-Cake', 'Sobremesas', 'Cheese-Cake de morango', '17.261.661/0007-69'),
+    (8.00, 'Cheese-Cake', 'Sobremesas', 'Cheese-Cake de morango', '17.261.661/0007-69');
     
 INSERT INTO menu VALUES
 	('13.574.594/0001-96', 1, 10),
@@ -199,6 +199,8 @@ SELECT * FROM produtosPedidos;
 SELECT p.preco, pp.pedidoCodigo, pp.produtoCodigo
 FROM produto p, produtosPedidos pp
 WHERE p.codigo = pp.produtoCodigo;
+
+SELECT * FROM imagens;
 
 # Testar procedure
 INSERT INTO produtosPedidos VALUES (2, 'nenhuma observacao', 2, 4);

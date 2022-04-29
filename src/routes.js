@@ -1,12 +1,23 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination : './public/images/',
+    filename : (req, file, cb) => {
+        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
+    }
+});
+
 
 const LoginController = require('./controllers/LoginController');
 const ClienteController = require('./controllers/ClienteController');
 const EntregadorController = require('./controllers/EntregadorController');
 const GerenteController = require('./controllers/GerenteController');
 const RestauranteController = require('./controllers/RestauranteController');
-const EnderecoRestauranteController = require('./controllers/EnderecoRestauranteController')
+const EnderecoRestauranteController = require('./controllers/EnderecoRestauranteController');
+const ImagensController = require('./controllers/ImagensController');
 
 const { route } = require('express/lib/router');
 
@@ -54,5 +65,12 @@ router.delete('/restaurante', RestauranteController.delete);
 router.get('/enderecorestaurante', EnderecoRestauranteController.selectAll);
 router.post('/enderecorestaurante', EnderecoRestauranteController.insert);
 
+const upload = multer({
+    storage: storage
+})
+
+// Rotas para IMAGENS_SERVICE
+router.post('/imagem', upload.single('imagem'), ImagensController.insert);
+router.get('/imagem', ImagensController.selectAll)
 
 module.exports = router;

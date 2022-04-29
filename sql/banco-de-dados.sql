@@ -56,9 +56,20 @@ CREATE TABLE cliente (
     dataNascimento DATE,
     telefone VARCHAR(15),
     loginEmail VARCHAR(30),
+    imagem BLOB,
     
     PRIMARY KEY (cpf),
     FOREIGN KEY (loginEmail) REFERENCES login(email)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE
+);
+
+CREATE TABLE imagens (
+	imagem BLOB,
+    cpfCliente VARCHAR(20),
+    
+    PRIMARY KEY(cpfCliente),
+    FOREIGN KEY (cpfCliente) REFERENCES cliente(cpf)
     ON DELETE CASCADE
     ON UPDATE CASCADE
 );
@@ -100,7 +111,6 @@ CREATE TABLE produto (
      categoria VARCHAR(25),
     descricao VARCHAR(80),
     restauranteCnpj VARCHAR(18),
-    imagem BLOB,
     
     PRIMARY KEY (codigo),
     FOREIGN KEY (restauranteCnpj) REFERENCES restaurante(cnpj)
