@@ -74,9 +74,10 @@ h1 {
     padding: 10px 15px;
 }
 
-#deleta { 
-    margin-left: 10px;
+#salvar, #cancelar {
+    display: none;
 }
+
 
 button:hover {
     background-color: var(--gray);

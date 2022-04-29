@@ -59,6 +59,19 @@ function selectByEmail(email) {
     })
 }
 
+function selectGerenteAndRestaurante() {
+    return new Promise((resolve, reject) => {
+        db.query('SELECT * FROM vw_restGerente', (error, results) => {
+            if (error) {
+                reject(error);
+                return;
+            }
+
+            resolve(results);
+        })
+    })
+}
+
 function insert(cpf, nome, loginEmail) {
     return new Promise((resolve, reject) => {
         const sql = 'INSERT INTO gerente(cpf, nome, loginEmail) VALUES (?,?,?)';
@@ -111,6 +124,7 @@ module.exports = {
     selectAll: selectAll,
     selectByCpf: selectByCpf,
     selectByEmail: selectByEmail,
+    selectGerenteAndRestaurante: selectGerenteAndRestaurante,
     insert: insert,
     update: update,
     delete: _delete

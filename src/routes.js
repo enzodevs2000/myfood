@@ -22,7 +22,7 @@ router.delete('/login/:email', LoginController.delete);
 router.get('/cliente', ClienteController.selectAll);
 router.get('/cliente/proc/:email', ClienteController.selectByEmail);
 router.post('/cliente', ClienteController.insert);
-router.put('/cliente', ClienteController.update);
+router.put('/cliente/:email', ClienteController.update);
 router.delete('/cliente', ClienteController.delete);
 
 
@@ -30,6 +30,7 @@ router.delete('/cliente', ClienteController.delete);
 router.get('/gerente', GerenteController.selectAll);
 router.get('/gerente/:cpf', GerenteController.selectByCpf);
 router.get('/gerente/proc/:email', GerenteController.selectByEmail);
+router.get('/gerente/view', GerenteController.selectGerenteAndRestaurante);
 router.post('/gerente', GerenteController.insert);
 router.put('/gerente', GerenteController.update);
 router.delete('/gerente', GerenteController.delete);
