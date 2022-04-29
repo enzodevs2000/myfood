@@ -43,6 +43,19 @@ async function selectByEmail(request, response) {
     response.json(json);
 }
 
+async function selectGerenteAndRestaurante(request, response) {
+    let json = {error:'', result:[]};
+
+    let email = request.params.email;
+    let gerenteRestaurante = await GerenteService.selectGerenteAndRestaurante(email);
+
+    if (gerenteRestaurante) {
+        json.result = gerenteRestaurante;
+    }
+
+    response.json(json);
+}
+
 async function insert(request, response) {
     let json = {error:'', result:[]};
         
@@ -73,8 +86,8 @@ async function update(request, response) {
     let json = {error:'', result:[]};
     
     let registro = request.params.registro;
-    let cpf = request.query.nome;
-    let nome = request.query.cnh;
+    let cpf = request.query.cpf;
+    let nome = request.query.nome;
 
     if (registro && cpf && nome) {
         await GerenteService.update(cpf, nome, registro);
@@ -98,6 +111,7 @@ module.exports = {
     selectAll: selectAll,
     selectByCpf: selectByCpf,
     selectByEmail: selectByEmail,
+    selectGerenteAndRestaurante: selectGerenteAndRestaurante,
     insert: insert,
     update: update,
     delete: _delete

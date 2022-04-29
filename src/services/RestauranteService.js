@@ -31,11 +31,11 @@ function insert(cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEn
     })
 }
 
-function update(nome, dataNascimento, telefone, loginEmail) {
+function update(cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro) {
     return new Promise((resolve, reject) => {
-        const sql = 'UPDATE restaurante SET nome = ?, dataNascimento = ?, telefone = ? WHERE loginEmail = ?';
-        const values = [nome, dataNascimento, telefone, loginEmail];
-
+        const sql = 'UPDATE restaurante SET cnpj = ?, nome = ?, aberto = ?, horarioAbertura = ?, horarioFechamento = ?, taxaDeEntrega =? WHERE gerenteRegistro = ?';
+        const values = [cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro];
+        
         db.query(sql, values, (error, results) => {
             if (error) {
                 reject(error);

@@ -54,7 +54,6 @@ async function update(request, response) {
     let senha = request.query.senha;
     let permissao = request.query.permissao;
 
-
     if (loginEmail && email && senha && permissao) {
         await LoginService.update(email, senha, permissao, loginEmail);
         json.result = {email, senha, permissao}

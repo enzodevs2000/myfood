@@ -31,14 +31,6 @@ async function insert(request, response) {
     let taxaDeEntrega = request.query.taxaDeEntrega;
     let gerenteRegistro = request.query.gerenteRegistro;
 
-    // let cnpj = request.body.cnpj;
-    // let nome = request.body.nome;
-    // let aberto = request.body.aberto;
-    // let horarioAbertura = request.body.horarioAbertura;
-    // let horarioFechamento = request.body.horarioFechamento;
-    // let taxaDeEntrega = request.body.taxaDeEntrega;
-    // let gerenteRegistro = request.body.gerenteRegistro;
-
     if (cnpj && nome && aberto && horarioAbertura && horarioFechamento && taxaDeEntrega && gerenteRegistro) {
         let restaurante = await RestauranteService.insert(cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro);
 
@@ -61,17 +53,16 @@ async function insert(request, response) {
 async function update(request, response) {
     let json = {error:'', result:[]};
     
-    let cnpj = request.params.cnpj;
+    let gerenteRegistro = request.params.registro;
+    let cnpj = request.query.cnpj;
     let nome = request.query.nome;
     let aberto = request.query.aberto;
     let horarioAbertura = request.query.horarioAbertura;
     let horarioFechamento = request.query.horarioFechamento;
     let taxaDeEntrega = request.query.taxaDeEntrega;
-    let gerenteRegistro = request.query.gerenteRegistro;
-
 
     if (cnpj && nome && aberto && horarioAbertura && horarioFechamento && taxaDeEntrega && gerenteRegistro) {
-        await RestauranteService.update(nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro, cnpj);
+        await RestauranteService.update(cnpj, nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro);
         json.result = {nome, aberto, horarioAbertura, horarioFechamento, taxaDeEntrega, gerenteRegistro}
     } else {
         json.error = 'Campos não enviados!';

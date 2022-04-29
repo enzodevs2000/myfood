@@ -33,7 +33,7 @@ router.delete('/login/:email', LoginController.delete);
 router.get('/cliente', ClienteController.selectAll);
 router.get('/cliente/proc/:email', ClienteController.selectByEmail);
 router.post('/cliente', ClienteController.insert);
-router.put('/cliente', ClienteController.update);
+router.put('/cliente/:email', ClienteController.update);
 router.delete('/cliente', ClienteController.delete);
 
 
@@ -41,8 +41,9 @@ router.delete('/cliente', ClienteController.delete);
 router.get('/gerente', GerenteController.selectAll);
 router.get('/gerente/:cpf', GerenteController.selectByCpf);
 router.get('/gerente/proc/:email', GerenteController.selectByEmail);
+router.get('/gerente/view/:email', GerenteController.selectGerenteAndRestaurante);
 router.post('/gerente', GerenteController.insert);
-router.put('/gerente', GerenteController.update);
+router.put('/gerente/:registro', GerenteController.update);
 router.delete('/gerente', GerenteController.delete);
 
 
@@ -50,14 +51,14 @@ router.delete('/gerente', GerenteController.delete);
 router.get('/entregador', EntregadorController.selectAll);
 router.get('/entregador/proc/:email', EntregadorController.selectByEmail);
 router.post('/entregador', EntregadorController.insert);
-router.put('/entregador', EntregadorController.update);
+router.put('/entregador/:email', EntregadorController.update);
 router.delete('/entregador', EntregadorController.delete);
 
 
 // Rotas para RESTAURANTE
 router.get('/restaurante', RestauranteController.selectAll);
 router.post('/restaurante', RestauranteController.insert);
-router.put('/restaurante', RestauranteController.update);
+router.put('/restaurante/:registro', RestauranteController.update);
 router.delete('/restaurante', RestauranteController.delete);
 
 
@@ -72,5 +73,6 @@ const upload = multer({
 // Rotas para IMAGENS_SERVICE
 router.post('/imagem', upload.single('imagem'), ImagensController.insert);
 router.get('/imagem', ImagensController.selectAll)
+
 
 module.exports = router;
