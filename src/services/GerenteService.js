@@ -59,12 +59,21 @@ function selectByEmail(email) {
     })
 }
 
-function selectGerenteAndRestaurante() {
+function selectGerenteAndRestaurante(email) {
     return new Promise((resolve, reject) => {
-        db.query('SELECT * FROM vw_restGerente', (error, results) => {
+        const sql = 'CALL selectGerenteRestauranteByEmail(?)';
+        const values = email;
+        
+        db.query(sql, values, (error, results) => {
             if (error) {
                 reject(error);
                 return;
+            }
+
+            if (results.length > 0) {
+                resolve(results[0]);
+            } else {
+                resolve(false);
             }
 
             resolve(results);

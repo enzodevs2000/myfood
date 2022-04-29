@@ -30,9 +30,9 @@ router.delete('/cliente', ClienteController.delete);
 router.get('/gerente', GerenteController.selectAll);
 router.get('/gerente/:cpf', GerenteController.selectByCpf);
 router.get('/gerente/proc/:email', GerenteController.selectByEmail);
-router.get('/gerente/view', GerenteController.selectGerenteAndRestaurante);
+router.get('/gerente/view/:email', GerenteController.selectGerenteAndRestaurante);
 router.post('/gerente', GerenteController.insert);
-router.put('/gerente', GerenteController.update);
+router.put('/gerente/:registro', GerenteController.update);
 router.delete('/gerente', GerenteController.delete);
 
 
@@ -47,13 +47,14 @@ router.delete('/entregador', EntregadorController.delete);
 // Rotas para RESTAURANTE
 router.get('/restaurante', RestauranteController.selectAll);
 router.post('/restaurante', RestauranteController.insert);
-router.put('/restaurante', RestauranteController.update);
+router.put('/restaurante/:registro', RestauranteController.update);
 router.delete('/restaurante', RestauranteController.delete);
 
 
 // Rotas para ENDERECORESTAURANTE
 router.get('/enderecorestaurante', EnderecoRestauranteController.selectAll);
 router.post('/enderecorestaurante', EnderecoRestauranteController.insert);
+
 
 
 module.exports = router;
