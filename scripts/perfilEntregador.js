@@ -7,7 +7,7 @@ async function getUserData(email) {
 }
 
 async function displayUserData() {
-    const userLogin = JSON.parse(sessionStorage.getItem('user'));
+    userLogin = JSON.parse(sessionStorage.getItem('user'));
     const userData = await getUserData(userLogin.email);
 
     nomeInput.value = userData.nome;
@@ -18,6 +18,7 @@ async function displayUserData() {
 }
 
 async function updateLogin() {
+    userLogin = JSON.parse(sessionStorage.getItem('user'));
     const url = new URL(`http://localhost:3000/api/login/${userLogin.email}`);
     
     url.searchParams.append('email', emailInput.value);
@@ -63,6 +64,7 @@ async function updateEntregador() {
 }
 
 async function deleteLogin() {
+    userLogin = JSON.parse(sessionStorage.getItem('user'));
     const url = new URL(`http://localhost:3000/api/login/${userLogin.email}`);
 
     const init = {
@@ -102,7 +104,7 @@ function disableUpdate() {
     cancelarButton.style.display = 'none';
 }
 
-const userLogin = JSON.parse(sessionStorage.getItem('user'));
+let userLogin = JSON.parse(sessionStorage.getItem('user'));
 const nomeInput = document.querySelector('#nome');
 const cnhInput = document.querySelector('#cnh');
 const telefoneInput = document.querySelector('#telefone');
