@@ -53,10 +53,10 @@ function insert(nome, cnh, telefone, loginEmail) {
     })
 }
 
-function update(nome, cnh, telefone, registro) {
+function update(nome, cnh, telefone, loginEmail) {
     return new Promise((resolve, reject) => {
-        const sql = 'UPDATE entregador SET nome = ?, cnh = ?, telefone = ? WHERE registro = ?';
-        const values = [nome, cnh, telefone, registro];
+        const sql = 'UPDATE entregador SET nome = ?, cnh = ?, telefone = ? WHERE loginEmail = ?';
+        const values = [nome, cnh, telefone, loginEmail];
 
         db.query(sql, values, (error, results) => {
             if (error) {

@@ -40,7 +40,7 @@ router.delete('/gerente', GerenteController.delete);
 router.get('/entregador', EntregadorController.selectAll);
 router.get('/entregador/proc/:email', EntregadorController.selectByEmail);
 router.post('/entregador', EntregadorController.insert);
-router.put('/entregador', EntregadorController.update);
+router.put('/entregador/:email', EntregadorController.update);
 router.delete('/entregador', EntregadorController.delete);
 
 

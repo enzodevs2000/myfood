@@ -52,15 +52,14 @@ async function insert(request, response) {
 async function update(request, response) {
     let json = {error:'', result:[]};
     
-    let registro = request.params.registro;
+    let loginEmail = request.params.email;
     let nome = request.query.nome;
     let cnh = request.query.cnh;
     let telefone = request.query.telefone;
 
-
-    if (registro && nome && cnh && telefone) {
-        await EntregadorService.update(nome, cnh, telefone, registro);
-        json.result = {nome, cnh, telefone, registro};
+    if (loginEmail && nome && cnh && telefone) {
+        await EntregadorService.update(nome, cnh, telefone, loginEmail);
+        json.result = {nome, cnh, telefone, loginEmail};
     } else {
         json.error = 'Campos não enviados!';
     }
